@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import '../../node_modules/font-awesome/css/font-awesome.css';
+@import './variables.scss';
+
+li {
+  list-style-type: none;
+}
+
+ul, ol, p, h1, h2, h3, h4, h5, h6, blockquote {
+  margin-bottom: 0;
+}
+
+button, a {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  &:focus, &:active {
+    outline: none!important;
+    box-shadow: none!important;
+  }
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
