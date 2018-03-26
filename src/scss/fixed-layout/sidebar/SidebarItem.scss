@@ -1,0 +1,29 @@
+@import '../../variables';
+
+.sidebar-item {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  position: relative;
+
+  .conversations-badge {
+    position: absolute;
+    right: 14px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $_blue;
+    border: 2px solid $_grey;
+  }
+
+  i {
+    font-size: 20px;
+    color: #737ba2;
+
+    &.active {
+      color: white;
+    }
+  }
+}

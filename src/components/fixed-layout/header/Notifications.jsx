@@ -7,8 +7,17 @@ class Notifications extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      isBadgeVisible: false
     }
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        isBadgeVisible: !this.state.isBadgeVisible
+      });
+    }, 3000);
   }
 
   toggleNotifications = () => {
@@ -22,10 +31,12 @@ class Notifications extends Component {
   render() {
     const { isOpen } = this.state;
     return (
-      <Dropdown isOpen={isOpen} toggle={this.toggleNotifications}>
+      <Dropdown isOpen={isOpen} toggle={this.toggleNotifications} className='fixed-header-notifications'>
         <DropdownToggle>
           <i className='fa fa-bell-o' />
-          <span className='notifications-badge' />
+          {
+            this.state.isBadgeVisible? <span className='notifications-badge' /> : ''
+          }
         </DropdownToggle>
         <DropdownMenu right>
           <DropdownItem>Message</DropdownItem>

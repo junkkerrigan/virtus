@@ -1,0 +1,14 @@
+@import '../../variables';
+
+.fixed-header-notifications {
+  .notifications-badge {
+    position: absolute;
+    right: -3px;
+    top: -2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $_blue;
+    border: 2px solid $_grey;
+  }
+}

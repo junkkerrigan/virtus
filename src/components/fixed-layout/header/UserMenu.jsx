@@ -18,12 +18,12 @@ class UserMenu extends Component {
     })
   };
 
-  //TODO: add redirect to login page
+  //TODO: add redirect to login page and stylize menu
 
   render() {
     const { isOpen } = this.state;
     return (
-        <Dropdown isOpen={isOpen} toggle={this.toggleMenu}>
+        <Dropdown isOpen={isOpen} toggle={this.toggleMenu} className='fixed-header-menu'>
           <DropdownToggle>
             <img src={userAvatar} alt="user avatar" width="40" height="40" className='user-avatar'/>
             <i className='fa fa-angle-down' />
