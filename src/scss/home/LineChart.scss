@@ -1,0 +1,66 @@
+@import '../variables';
+
+.line-chart {
+  background-color: $_grey;
+  margin-top: 50px;
+}
+
+.bar-chart {
+  margin-right: 60px;
+  height: 120px;
+
+  @media (max-width: $_max_sm) {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  &-legend {
+    margin-left: 15px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    @include font($_fgrey, 500, 16);
+
+    @media (max-width: $_max_sm) {
+      margin: 20px 0 30px;
+      align-items: center;
+    }
+
+    .number {
+      @include font(white, 700, 20);
+    }
+  }
+
+  &-list {
+    padding: 25px;
+    margin-bottom: 50px;
+
+    @media (max-width: $_max_sm) {
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    .CircularProgressbar {
+      width: 70px;
+
+      @media (max-width: $_max_sm) {
+        height: 100%;
+        width: 100%;
+      }
+
+      &-path {
+        stroke: #2196f3!important;
+      }
+
+      &-trail {
+        stroke: #505364!important;
+      }
+
+      &-text {
+        fill: #2196f3!important;
+        @include font(initial, 500, 26);
+      }
+    }
+  }
+}

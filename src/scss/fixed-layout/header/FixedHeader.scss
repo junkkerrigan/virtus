@@ -7,14 +7,10 @@
   top: 0;
   width: 100%;
   background: $_grey;
-  box-shadow: 0 3px 80px rgba(158, 163, 180, 0.3);
-
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 
   .main-logo {
     align-items: center;

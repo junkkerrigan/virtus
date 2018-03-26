@@ -26,3 +26,14 @@ button, a {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.hidden {
+  overflow: hidden;
+}
+
+.page {
+  padding: 60px 0 0 60px;
+  width: 100%;
+  min-height: 100vh;
+  background: $_dgrey;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import map from 'lodash/map';
+import shortid from 'shortid';
 import SidebarItem from './SidebarItem';
 import data from './data';
 
@@ -14,6 +15,7 @@ const FixedSidebar = props => (
             location={props.match.params.currentPage}
             target={item.target}
             iconName={item.iconName}
+            key={shortid.generate()}
           />
         ))
       }
