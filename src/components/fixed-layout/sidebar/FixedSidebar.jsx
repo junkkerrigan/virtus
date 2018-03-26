@@ -2,7 +2,7 @@ import React from 'react';
 import map from 'lodash/map';
 import shortid from 'shortid';
 import SidebarItem from './SidebarItem';
-import data from './data';
+import data from './data/data';
 
 import '../../../scss/fixed-layout/sidebar/FixedSidebar.scss';
 
