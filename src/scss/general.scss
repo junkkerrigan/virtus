@@ -44,3 +44,7 @@ select {
   min-height: 100vh;
   background: $_dgrey;
 }
+
+.home-section-title {
+  @include font(white, 700, 20);
+}

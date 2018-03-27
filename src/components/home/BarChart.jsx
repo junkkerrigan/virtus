@@ -38,7 +38,7 @@ class BarChart extends Component {
       >
         <div className='bar-chart'>
           <header className='bar-chart-header d-flex'>
-            <h3 className='bar-chart-title'>Sales report</h3>
+            <h3 className='bar-chart-title home-section-title'>Sales report</h3>
             <div className='bar-chart-period-wrapper'>
               <select className='bar-chart-period' onChange={this.onPeriodChange}>
                 <option value='year'>Year</option>

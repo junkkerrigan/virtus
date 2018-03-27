@@ -1,0 +1,93 @@
+@import '../variables';
+
+.calendar-wrapper {
+  margin-top: 15px;
+}
+
+.DayPicker {
+  width: 100%;
+
+  &-Month {
+    margin: 0;
+    width: 100%;
+  }
+
+  &-Weekday {
+    @include font($_fgrey, 700, 14);
+  }
+
+  &-Weekdays, &-Body {
+    background: $_grey;
+  }
+
+  &-Day {
+    @include font(white, 500, 14);
+
+    @media (max-width: $_max_xs) {
+      font-size: 10px;
+      text-align: initial;
+    }
+
+    &--outside {
+      color: $_fgrey;
+    }
+
+    &--today {
+      @media (min-width: $_min_lg) {
+        border-radius: 50%;
+        background: $_blue;
+        @include font(white, 500, 14)
+      }
+      @include font($_blue, 700, 12);
+    }
+  }
+
+  &-NavButton {
+    outline: none!important;
+    background-image: none;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: initial;
+    height: initial;
+
+    &--next {
+      right: 40px;
+      margin: 0;
+
+      &::before {
+        content: '\f105';
+      }
+    }
+
+    &--prev {
+      left: 40px;
+      margin: 0;
+
+      &::before {
+        content: '\f104';
+      }
+    }
+  }
+
+  &-NavBar {
+    position: absolute;
+    width: 100%;
+    height: 74px;
+  }
+
+  &-Caption {
+    background: $_lgrey;
+    margin: 0;
+    padding: 25px 40px;
+    text-align: center;
+
+    & > div {
+      @include font(white, 700, 20);
+    }
+  }
+}

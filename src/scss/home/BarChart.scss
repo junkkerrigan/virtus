@@ -21,8 +21,6 @@
   }
 
   &-title {
-    @include font(white, 700, 20);
-
     @media (max-width: $_max_xs) {
       margin-bottom: 10px;
     }
