@@ -10,7 +10,7 @@ import '../../scss/home/LineChart.scss';
 
 const chartData = {
   datasets: [
-    Object.assign({}, config, data)
+    Object.assign({}, config.look, data)
   ]
 };
 
@@ -45,17 +45,7 @@ const LineChart = () => (
         <Scatter
           data={chartData}
           legend={{ display: false }}
-          options={{
-            scales: {
-              xAxes: [{
-                display: false
-              }],
-              yAxes: [{
-                display: false
-              }]
-            },
-            maintainAspectRatio: false
-          }}
+          options={config.options}
           height={200}
         />
       </div>

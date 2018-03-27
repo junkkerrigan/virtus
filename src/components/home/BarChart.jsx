@@ -4,10 +4,12 @@ import { Bar } from 'react-chartjs-2';
 import config from '../../config/barChart';
 import data from './data/barChartData';
 
-const chartData = (currentPeriod) => ({
-  labels: data[currentPeriod].data.map(() => ''),
+import '../../scss/home/BarChart.scss';
+
+let chartData = (currentPeriod) => ({
+  labels: data[currentPeriod].data.map((item, index) => index+1),
   datasets: [
-    Object.assign({}, config, data[currentPeriod])
+    Object.assign({}, config.look, data[currentPeriod])
   ]
 });
 
@@ -27,25 +29,30 @@ class BarChart extends Component {
 
   render() {
     const currentData = chartData(this.state.currentPeriod);
-    console.log(currentData);
     return (
       <Col
         lg={{ size: 6, offset: 0 }}
         md={{ size: 8, offset: 2 }}
         sm={{ size: 12, offset: 0 }}
-        className='bar-chart'
+        className='bar-chart-wrapper'
       >
-        <header className='bar-chart-header'>
-          <h3>Sales report</h3>
-          <div className='bar-chart-period-wrapper'>
-            <select className='bar-chart-period' onChange={this.onPeriodChange}>
-              <option value='year'>Year</option>
-              <option value='month'>Month</option>
-            </select>
+        <div className='bar-chart'>
+          <header className='bar-chart-header d-flex'>
+            <h3 className='bar-chart-title'>Sales report</h3>
+            <div className='bar-chart-period-wrapper'>
+              <select className='bar-chart-period' onChange={this.onPeriodChange}>
+                <option value='year'>Year</option>
+                <option value='month'>Month</option>
+              </select>
+            </div>
+          </header>
+          <div>
+            <Bar
+              data={currentData}
+              options={config.options}
+              height={200}
+            />
           </div>
-        </header>
-        <div>
-          <Bar data={currentData} />
         </div>
       </Col>
     );

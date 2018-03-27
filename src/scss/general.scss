@@ -21,6 +21,13 @@ button, a {
   }
 }
 
+select {
+  &:focus, &:active {
+    outline: none!important;
+    box-shadow: none!important;
+  }
+}
+
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

@@ -1,0 +1,59 @@
+@import '../variables';
+
+.bar-chart {
+  background: $_grey;
+  padding: 25px 25px 15px;
+  box-shadow: 0 3px 40px rgba(23, 24, 32, 0.2);
+
+  &-wrapper {
+    margin-top: 15px;
+  }
+
+  &-header {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    @media (max-width: $_max_xs) {
+      flex-direction: column;
+    }
+  }
+
+  &-title {
+    @include font(white, 700, 20);
+
+    @media (max-width: $_max_xs) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &-period {
+    background: transparent;
+    border: none;
+    @include font($_fgrey, 700, 14);
+    padding-right: 30px;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba(158, 163, 180, 0.3);
+      border-radius: 18px;
+      position: relative;
+      padding: 7px 15px;
+
+      &::before {
+        content: 'Show:';
+        right: calc(100% + 20px);
+        position: absolute;
+        @include font($_fgrey, 700, 14);
+      }
+
+      @media (max-width: $_max_sm) {
+        &::before {
+          content: '';
+        }
+      }
+    }
+  }
+}

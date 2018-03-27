@@ -1,7 +1,33 @@
 export default {
-  backgroundColor: 'rgba(255,99,132,0.2)',
-  borderColor: 'rgba(255,99,132,1)',
-  borderWidth: 1,
-  hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-  hoverBorderColor: 'rgba(255,99,132,1)'
+  look: {
+    backgroundColor: '#505464',
+    borderWidth: 0,
+    hoverBackgroundColor: '#2196f3'
+  },
+  options: {
+    legend: { display: false },
+    scales: {
+      yAxes: [{
+        ticks: {
+          display: false
+        },
+        gridLines: {
+          drawBorder: false,
+          color: '#505464'
+        }
+      }],
+      xAxes: [{
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          fontFamily: 'Montserrat',
+          fontSize: 14,
+          fontWeight: 400,
+          color: '#9ca1b2'
+        }
+      }]
+    },
+    maintainAspectRatio: false
+  }
 };
