@@ -1,0 +1,61 @@
+@import "../variables";
+
+.home-page .project {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #505364;
+  position: relative;
+
+  &-data {
+    @include font($_fgrey, 700, 12);
+    max-width: 50%;
+    margin-left: 20px;
+
+    div {
+      max-width: 100%;
+    }
+
+    span {
+      &:first-of-type {
+        position: relative;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background: $_fgrey;
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+          right: -10px;
+        }
+      }
+
+      &:last-of-type {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  &-title {
+    @include font(white, 700, 14);
+    max-width: 100%;
+    margin-bottom: 5px;
+  }
+
+  &-options {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    i {
+      font-size: 16px;
+      color: $_fgrey;
+    }
+  }
+}

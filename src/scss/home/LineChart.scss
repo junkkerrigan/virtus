@@ -1,67 +1,72 @@
 @import '../variables';
 
-.line-chart {
-  background-color: $_grey;
-  margin-top: 50px;
-  box-shadow: 0 3px 40px rgba(23, 24, 32, 0.2);
-}
+.home-page {
+  .line-chart {
+    background-color: $_grey;
+    margin-top: 50px;
+    box-shadow: 0 3px 40px rgba(23, 24, 32, 0.2);
 
-.doughnut-chart {
-  margin-right: 60px;
-  height: 120px;
-
-  @media (max-width: $_max_sm) {
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-  }
-
-  &-legend {
-    margin-left: 15px;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    @include font($_fgrey, 700, 14);
-    text-transform: uppercase;
-
-    @media (max-width: $_max_sm) {
-      margin: 20px 0 30px;
-      align-items: center;
-    }
-
-    .number {
-      @include font(white, 700, 20);
+    @media (max-width: $_max_md) {
+      margin-top: 15px;
     }
   }
 
-  &-list {
-    padding: 25px;
-    margin-bottom: 50px;
+  .doughnut-chart {
+    margin-right: 60px;
+    height: 120px;
 
     @media (max-width: $_max_sm) {
       flex-direction: column;
-      margin: 0 auto;
+      align-items: center;
+      margin: 0;
     }
 
-    .CircularProgressbar {
-      width: 70px;
+    &-legend {
+      margin-left: 15px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      @include font($_fgrey, 700, 14);
+      text-transform: uppercase;
 
       @media (max-width: $_max_sm) {
-        height: 100%;
-        width: 100%;
+        margin: 20px 0 30px;
+        align-items: center;
       }
 
-      &-path {
-        stroke: #2196f3!important;
+      .number {
+        @include font(white, 700, 20);
+      }
+    }
+
+    &-list {
+      padding: 25px;
+
+      @media (max-width: $_max_sm) {
+        flex-direction: column;
+        margin: 0 auto;
       }
 
-      &-trail {
-        stroke: #505364!important;
-      }
+      .CircularProgressbar {
+        width: 70px;
 
-      &-text {
-        fill: #2196f3!important;
-        @include font(initial, 500, 26);
+        @media (max-width: $_max_sm) {
+          height: 100%;
+          width: 100%;
+        }
+
+        &-path {
+          stroke: #2196f3!important;
+        }
+
+        &-trail {
+          stroke: #505364!important;
+        }
+
+        &-text {
+          fill: #2196f3!important;
+          @include font(initial, 500, 26);
+        }
       }
     }
   }

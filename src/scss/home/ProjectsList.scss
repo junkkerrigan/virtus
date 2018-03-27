@@ -1,0 +1,28 @@
+@import "../variables";
+
+.home-page .project-list {
+  background: $_grey;
+  max-height: 296px;
+  overflow: scroll;
+  padding: 0;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &-header {
+    width: 100%;
+    padding: 25px 0;
+    background: $_lgrey;
+    justify-content: center;
+    margin-top: 50px;
+
+    @media (max-width: $_max_md) {
+      margin-top: 15px;
+    }
+  }
+
+  &-wrapper {
+    box-shadow: 0 3px 40px rgba(23, 24, 32, 0.2);
+  }
+}

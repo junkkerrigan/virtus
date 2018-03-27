@@ -2,8 +2,8 @@ import React from 'react';
 import { Col } from 'reactstrap';
 import CircularProgressbar from 'react-circular-progressbar';
 import { Scatter } from 'react-chartjs-2';
-import data from './data/lineChartData';
-import config from '../../config/lineChart';
+import data from '../../data/lineChartData';
+import config from '../../config/lineChartConfig';
 
 import 'react-circular-progressbar/dist/styles.css';
 import '../../scss/home/LineChart.scss';

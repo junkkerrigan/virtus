@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Col } from 'reactstrap';
 import { Bar } from 'react-chartjs-2';
-import config from '../../config/barChart';
-import data from './data/barChartData';
+import config from '../../config/barChartConfig';
+import data from '../../data/barChartData';
 
 import '../../scss/home/BarChart.scss';
 

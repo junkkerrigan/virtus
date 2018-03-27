@@ -1,93 +1,120 @@
 @import '../variables';
 
-.calendar-wrapper {
-  margin-top: 15px;
-}
+.home-page {
+  .calendar-wrapper {
+    margin-top: 15px;
+    box-shadow: 0 3px 40px rgba(23, 24, 32, 0.2);
+  }
 
-.DayPicker {
-  width: 100%;
-
-  &-Month {
-    margin: 0;
+  .DayPicker {
     width: 100%;
-  }
+    height: 100%;
 
-  &-Weekday {
-    @include font($_fgrey, 700, 14);
-  }
-
-  &-Weekdays, &-Body {
-    background: $_grey;
-  }
-
-  &-Day {
-    @include font(white, 500, 14);
-
-    @media (max-width: $_max_xs) {
-      font-size: 10px;
-      text-align: initial;
+    &-wrapper {
+      padding: 0;
+      height: 100%;
     }
 
-    &--outside {
-      color: $_fgrey;
+    &-Months {
+      height: 100%;
     }
 
-    &--today {
-      @media (min-width: $_min_lg) {
-        border-radius: 50%;
-        background: $_blue;
-        @include font(white, 500, 14)
-      }
-      @include font($_blue, 700, 12);
-    }
-  }
-
-  &-NavButton {
-    outline: none!important;
-    background-image: none;
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: initial;
-    height: initial;
-
-    &--next {
-      right: 40px;
+    &-Month {
       margin: 0;
+      width: 100%;
+      height: calc(100% - 74px);
+    }
 
-      &::before {
-        content: '\f105';
+    &-Weekday {
+      @include font($_fgrey, 700, 14);
+    }
+
+    &-Weekdays, &-Body {
+      background: $_grey;
+    }
+
+    &-Day {
+      @include font(white, 500, 14);
+
+      @media (max-width: $_max_xs) {
+        font-size: 10px;
+        text-align: initial;
+      }
+
+      &--outside {
+        color: $_fgrey;
+      }
+
+      &--today {
+        @media (min-width: $_min_lg) {
+          position: relative;
+          z-index: 0;
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            border-radius: 50%;
+            background: $_blue;
+            width: 70%;
+            height: 70%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+          }
+          @include font(white, 500, 14)
+        }
+        @include font($_blue, 700, 12);
       }
     }
 
-    &--prev {
-      left: 40px;
+    &-NavButton {
+      outline: none!important;
+      background-image: none;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: initial;
+      height: initial;
+
+      &--next {
+        right: 40px;
+        margin: 0;
+
+        &::before {
+          content: '\f105';
+        }
+      }
+
+      &--prev {
+        left: 40px;
+        margin: 0;
+
+        &::before {
+          content: '\f104';
+        }
+      }
+    }
+
+    &-NavBar {
+      position: absolute;
+      width: 100%;
+      height: 74px;
+    }
+
+    &-Caption {
+      background: $_lgrey;
       margin: 0;
+      padding: 25px 40px;
+      text-align: center;
 
-      &::before {
-        content: '\f104';
+      & > div {
+        @include font(white, 700, 20);
       }
-    }
-  }
-
-  &-NavBar {
-    position: absolute;
-    width: 100%;
-    height: 74px;
-  }
-
-  &-Caption {
-    background: $_lgrey;
-    margin: 0;
-    padding: 25px 40px;
-    text-align: center;
-
-    & > div {
-      @include font(white, 700, 20);
     }
   }
 }
