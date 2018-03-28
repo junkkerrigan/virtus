@@ -9,7 +9,7 @@ const ProjectItem = (props) => {
   } = props.order;
   return (
     <li className="project d-flex">
-      <img src={usersData[assignedTo].avatar} width="37" height="37" />
+      <img src={usersData[assignedTo].avatar} alt="avatar" width="37" height="37" />
       <div className="project-data">
         <p className="project-title ellipsis">{title}</p>
         <div className="ellipsis">

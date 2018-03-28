@@ -7,7 +7,7 @@ import ordersData from '../../data/ordersData';
 
 import '../../scss/home/ProjectsList.scss';
 
-// TODO: add checking projects by logged user
+// TODO: add checking all-projects by logged user
 
 const ProjectsList = () => (
   <Col

@@ -1,0 +1,83 @@
+@import '../variables';
+
+.workflow-page {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav {
+    border: none;
+
+    &-wrapper {
+      position: absolute;
+      left: 60px;
+      right: 0;
+      height: 60px;
+      background: #2481ce;
+      box-shadow: 0 3px 80px rgba(23, 24, 32, 0.2);
+    }
+
+    &-item {
+      height: 60px;
+      margin-bottom: 0;
+
+      &:last-of-type {
+        margin-left: 30px;
+      }
+    }
+
+    &-link {
+      height: 100%;
+      border: none;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      @include font($_dgrey, 700, 16);
+
+      &:hover {
+        color: $_dgrey;
+      }
+
+      &.active {
+        background: #2481ce;
+        color: white;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .company-filter {
+    background: #2481ce;
+    border: none;
+    @include font(white, 700, 14);
+    padding-right: 10px;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba(158, 163, 180, 0.3);
+      border-radius: 18px;
+      position: relative;
+      padding: 7px 15px;
+
+      &::before {
+        content: 'Show projects:';
+        right: calc(100% + 20px);
+        white-space: nowrap;
+        position: absolute;
+        @include font(white, 700, 14);
+      }
+
+      @media (max-width: $_max_sm) {
+        &::before {
+          content: '';
+        }
+      }
+    }
+  }
+}

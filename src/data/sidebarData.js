@@ -5,7 +5,7 @@ export default [
   },
   {
     iconName: 'bars',
-    target: 'workflow'
+    target: 'work'
   },
   {
     iconName: 'line-chart',

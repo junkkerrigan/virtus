@@ -343,7 +343,7 @@ export default [
   {
     assignedTo: 'michelle',
     title: 'Dashboard',
-    author: 'Themeforesr',
+    author: 'Themeforest',
     price: 1500,
     progress: 100,
     status: 'completed',
