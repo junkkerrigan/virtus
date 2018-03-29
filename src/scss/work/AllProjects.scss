@@ -1,0 +1,84 @@
+@import "../variables";
+
+.work-page {
+  .all-projects {
+    margin-top: 60px;
+    padding-bottom: 30px;
+
+    &-content {
+      @media (max-width: $_max_lg) {
+        max-width: 100%;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 8px;
+          border-radius: 6px;
+          background-color: #4d5060;
+          margin-top: -1px;
+
+          &-thumb {
+            background: $_blue;
+            border-radius: 6px;
+          }
+        }
+      }
+    }
+
+    &-header {
+      width: 100%;
+      @media (max-width: $_max_lg) {
+        margin: 50px 0 15px;
+      }
+
+      @media (max-width: $_max_sm) {
+        margin: 110px 0 15px;
+      }
+      margin: 100px 0 15px;
+      display: flex;
+      min-width: $_min_lg;
+
+      li {
+        display: flex;
+        @include font($_fgrey, 700, 14);
+
+        &:nth-of-type(1) {
+          width: 15%;
+          padding-left: 40px;
+        }
+
+        &:nth-of-type(2) {
+          width: 10%;
+          justify-content: center;
+        }
+
+        &:nth-of-type(3) {
+          width: 15%;
+        }
+
+        &:nth-of-type(4) {
+          width: 10%;
+        }
+
+        &:nth-of-type(5) {
+          width: 20%;
+          padding-right: 40px;
+        }
+
+        &:nth-of-type(6) {
+          width: 10%;
+        }
+
+        &:nth-of-type(7) {
+          width: 20%;
+
+        }
+      }
+    }
+
+    &-list {
+      padding: 0;
+      min-width: $_min_lg;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 const initialState = {
-  activeTab: 'workflow',
+  activeTab: 'allProjects',
   activeFilter: 'all'
 };
 

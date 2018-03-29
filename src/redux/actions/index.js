@@ -7,3 +7,4 @@ export const toggleFilter = filter => ({
   type: 'TOGGLE_FILTER',
   payload: filter
 });
+

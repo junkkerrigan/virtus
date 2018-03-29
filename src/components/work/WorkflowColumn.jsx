@@ -47,7 +47,7 @@ const WorkflowColumn = props => {
                             {...provided.dragHandleProps}
                             className="workflow-item-wrapper"
                           >
-                            <ProjectItem order={item} tag='div' />
+                            <ProjectItem order={item} tag='div' options />
                           </div>
                           {provided.placeholder}
                         </li>

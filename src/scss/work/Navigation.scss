@@ -1,12 +1,6 @@
 @import '../variables';
 
 .work-page {
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
   .nav {
     border: none;
 
@@ -14,10 +8,24 @@
       position: fixed;
       z-index: 1001;
       left: 60px;
+      top: 60px;
       right: 0;
       height: 60px;
+      @media (max-width: $_max_sm) {
+        height: 120px;
+      }
       background: #2481ce;
       box-shadow: 0 3px 80px rgba(23, 24, 32, 0.2);
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width: $_max_sm) {
+          flex-direction: column;
+        }
+      }
     }
 
     &-item {

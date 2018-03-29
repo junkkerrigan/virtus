@@ -68,7 +68,7 @@ class Workflow extends Component {
     return (
       <Container>
         <DragDropContext onDragEnd={this.onDragEnd}>
-          <Row>
+          <Row className='workflow'>
             {
               map(titles, item => {
                 return <WorkflowColumn

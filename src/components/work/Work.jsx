@@ -1,9 +1,10 @@
 import React from 'react';
-import { TabContent, TabPane, Container } from 'reactstrap';
+import { TabContent, TabPane } from 'reactstrap';
 import { connect } from 'react-redux';
 import ordersData from '../../data/ordersData';
 import Navigation from './Navigation';
 import Workflow from './Workflow';
+import AllProjects from './AllProjects';
 
 const mapStateToProps = state => {
   const { activeTab, activeFilter } = state.work;
@@ -34,7 +35,7 @@ const Work = props => {
       />
       <TabContent activeTab={activeTab}>
         <TabPane tabId='allProjects'>
-
+          <AllProjects ordersData={ordersData} activeFilter={activeFilter} />
         </TabPane>
         <TabPane tabId='workflow'>
           <Workflow ordersData={ordersData} activeFilter={activeFilter} />
