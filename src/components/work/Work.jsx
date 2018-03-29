@@ -1,10 +1,9 @@
 import React from 'react';
 import { TabContent, TabPane, Container } from 'reactstrap';
 import { connect } from 'react-redux';
-import Navigation from './Navigation';
 import ordersData from '../../data/ordersData';
-
-import '../../scss/work/Work.scss';
+import Navigation from './Navigation';
+import Workflow from './Workflow';
 
 const mapStateToProps = state => {
   const { activeTab, activeFilter } = state.work;
@@ -28,7 +27,7 @@ ordersData.forEach(
 const Work = props => {
   const { activeTab, activeFilter } = props;
   return (
-    <Container className='workflow-page'>
+    <div className='work-page'>
       <Navigation
         numberOfProjects={ordersData.length}
         companies={differentCompanies}
@@ -38,10 +37,10 @@ const Work = props => {
 
         </TabPane>
         <TabPane tabId='workflow'>
-
+          <Workflow ordersData={ordersData} activeFilter={activeFilter} />
         </TabPane>
       </TabContent>
-    </Container>
+    </div>
   );
 };
 

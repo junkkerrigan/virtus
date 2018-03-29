@@ -3,12 +3,13 @@ import usersData from '../../data/usersProfilesData';
 
 import '../../scss/home/ProjectItem.scss';
 
-const ProjectItem = (props) => {
+const ProjectItem = props => {
   const {
     assignedTo, title, author, price
   } = props.order;
+  const Tag = `${props.tag}`;
   return (
-    <li className="project d-flex">
+    <Tag className="project d-flex">
       <img src={usersData[assignedTo].avatar} alt="avatar" width="37" height="37" />
       <div className="project-data">
         <p className="project-title ellipsis">{title}</p>
@@ -20,7 +21,7 @@ const ProjectItem = (props) => {
       <button className="project-options">
         <i className="fa fa-ellipsis-v" />
       </button>
-    </li>
+    </Tag>
   );
 };
 

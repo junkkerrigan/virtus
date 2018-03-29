@@ -1,0 +1,75 @@
+@import "../variables";
+
+.work-page .workflow {
+  &-column {
+    position: relative;
+    left: -15px;
+
+    &-header {
+      margin-bottom: 30px;
+      position: relative;
+      width: 100%;
+
+      &::after {
+        content: '\f105';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        color: $_fgrey;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+    }
+
+    &-title {
+      @include font(white, 700, 16);
+      text-transform: capitalize;
+    }
+
+    &-total {
+      @include font($_fgrey, 700, 12);
+      position: relative;
+
+      &:first-of-type::after {
+        content: '';
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: $_fgrey;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: -10px;
+      }
+
+      &:last-of-type {
+        margin-left: 15px;
+      }
+
+      &.price {
+        color: $_blue;
+      }
+    }
+
+    &-list {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+    }
+
+    .project {
+      border-bottom: none;
+      background: $_grey;
+      border-radius: 5px;
+    }
+  }
+
+  &-item-wrapper {
+    margin-bottom: 15px;
+  }
+}

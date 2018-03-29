@@ -26,6 +26,7 @@ const ProjectsList = () => (
            return (<ProjectItem
              order={item}
              key={shortid.generate()}
+             tag='li'
            />);
           }
         })

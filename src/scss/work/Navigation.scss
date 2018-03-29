@@ -1,6 +1,6 @@
 @import '../variables';
 
-.workflow-page {
+.work-page {
   .container {
     display: flex;
     align-items: center;
@@ -11,7 +11,8 @@
     border: none;
 
     &-wrapper {
-      position: absolute;
+      position: fixed;
+      z-index: 1001;
       left: 60px;
       right: 0;
       height: 60px;

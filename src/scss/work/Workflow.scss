@@ -1,0 +1,25 @@
+@import "../variables";
+
+.work-page {
+  .row {
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow: scroll;
+    margin: 100px 0 20px;
+    min-height: calc(100vh - 180px);
+    max-height: calc(100vh - 180px);
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 8px;
+      border-radius: 6px;
+      background-color: #4d5060;
+      margin-top: -1px;
+
+      &-thumb {
+        background: $_blue;
+        border-radius: 6px;
+      }
+    }
+  }
+}
