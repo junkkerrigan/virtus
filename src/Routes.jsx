@@ -5,6 +5,7 @@ import FixedHeader from './components/fixed-layout/header/FixedHeader';
 import FixedSidebar from './components/fixed-layout/sidebar/FixedSidebar';
 import Home from './components/home/Home';
 import Work from './components/work/Work';
+import Statistics from './components/statistics/Statistics';
 
 const browserHistory = createBrowserHistory();
 
@@ -20,6 +21,7 @@ const Routes = () => (
             <Switch>
               <Route path="/home" component={Home} />
               <Route path="/work" component={Work} />
+              <Route path="/statistics" component={Statistics} />
             </Switch>
           </div>
         </div>

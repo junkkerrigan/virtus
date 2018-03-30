@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import LineChart from './LineChart';
+import LineChartHome from './LineChartHome';
 import BarChart from './BarChart';
 import Calendar from './Calendar';
 import ProjectsList from './ProjectsList';
@@ -10,7 +10,7 @@ import ProjectsList from './ProjectsList';
 const Home = () => (
   <Container className="home-page">
     <Row>
-      <LineChart />
+      <LineChartHome />
       <ProjectsList />
       <BarChart />
       <Col xs="3" />

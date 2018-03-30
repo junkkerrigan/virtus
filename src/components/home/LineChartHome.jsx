@@ -5,7 +5,7 @@ import { Scatter } from 'react-chartjs-2';
 
 import 'react-circular-progressbar/dist/styles.css';
 
-import data from '../../data/lineChartData';
+import { homePageData as data } from '../../data/lineChartData';
 import config from '../../config/lineChartConfig';
 
 import '../../scss/home/LineChart.scss';
@@ -16,7 +16,7 @@ const chartData = {
   ]
 };
 
-const LineChart = () => (
+const LineChartHome = () => (
   <Col lg="9" xs="12">
     <div className="line-chart">
       <ul className="doughnut-chart-list d-flex">
@@ -55,5 +55,5 @@ const LineChart = () => (
   </Col>
 );
 
-export default LineChart;
+export default LineChartHome;
 
