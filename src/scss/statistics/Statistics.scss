@@ -5,6 +5,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: $_max_md) {
+      flex-direction: column-reverse;
+      justify-content: center;
+      margin-top: 50px;
+    }
   }
 
   &-period {

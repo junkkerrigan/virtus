@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row } from 'reactstrap';
 import { Line } from 'rc-progress';
 import usersData from '../../data/usersProfilesData';
 
@@ -21,7 +20,6 @@ const Project = props => {
   const {
     title, author, price, deadline, left, timeSpent, progress, status, assignedTo
   } = props.order;
-  console.log(props);
   const {
     avatar, role, name
   } = usersData[assignedTo];

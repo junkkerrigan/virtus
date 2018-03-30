@@ -12,16 +12,16 @@ const browserHistory = createBrowserHistory();
 const Routes = () => (
   <Router history={browserHistory}>
     <Switch>
-      <Route exact path="/" render={() => (<Link to="/home">Login</Link>)} />
-      <Route strict path="/:currentPage">
+      <Route exact path='/' render={() => (<Link to='/home'>Login</Link>)} />
+      <Route strict path='/:currentPage'>
         <div>
           <Route component={FixedSidebar} />
           <Route component={FixedHeader} />
-          <div className="page">
+          <div className='page'>
             <Switch>
-              <Route path="/home" component={Home} />
-              <Route path="/work" component={Work} />
-              <Route path="/statistics" component={Statistics} />
+              <Route path='/home' component={Home} />
+              <Route path='/work' component={Work} />
+              <Route path='/statistics' component={Statistics} />
             </Switch>
           </div>
         </div>

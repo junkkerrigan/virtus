@@ -9,6 +9,7 @@ import '../../../scss/fixed-layout/header/FixedHeader.scss';
 import mainLogo from '../../../images/main-logo.png';
 
 // TODO: search
+// TODO: responsive
 
 const FixedHeader = () => (
   <header className="fixed-header">
