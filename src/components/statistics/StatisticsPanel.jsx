@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
 import map from 'lodash/map';
+import shortid from 'shortid';
+import PanelItem from './PanelItem';
+import data from '../../data/statisticsPanelData';
 
 import '../../scss/statistics/StatisticcsPanel.scss';
 
 const changeDirection = currentDir => currentDir==='UP'? 'DOWN' : 'UP';
+
+const PanelHeaderItem = ({direction, filter, handler, value}) => (
+  <button
+    className={`panel-data panel-header-data ${filter===value? 'active' : ''}`}
+    onClick={handler}
+    value={value}
+  >
+    {value}
+    <i className={
+      `fa fa-angle-${(filter===value && direction==='UP')? 'up' : 'down'}`
+    } />
+  </button>
+);
+
+const panelHeaderItems = [
+  'campaign', 'time', 'views', 'visitors', 'CTR', 'CPC', 'CPV', 'CPM', 'status'
+];
 
 class StatisticsPanel extends Component {
   constructor(props) {
@@ -28,105 +48,32 @@ class StatisticsPanel extends Component {
       })
   };
 
-  //TODO: add campaigns data
-  //TODO: add campaigns list with sort
+  //TODO: sort campaigns list
 
   render() {
     const { activeFilter, direction } = this.state;
     return (
-      <div className='f'>
-        <header className='panel-header'>
-          <button
-            className={`panel-header-data ${activeFilter==='campaign'? 'active' : ''}`}
-            onClick={this.onSortTypeChange}
-            value='campaign'
-          >
-            Campaign
-            <i className={
-              `fa fa-angle-${(activeFilter==='campaign' && direction==='UP')? 'up' : 'down'}`
-            } />
-          </button>
-          <button
-            className={`panel-header-data ${activeFilter==='time'? 'active' : ''}`}
-            onClick={this.onSortTypeChange}
-            value='time'
-          >
-            Time
-            <i className={
-              `fa fa-angle-${(activeFilter==='time' && direction==='UP')? 'up' : 'down'}`
-            } />
-          </button>
-          <button
-            className={`panel-header-data ${activeFilter==='views'? 'active' : ''}`}
-            onClick={this.onSortTypeChange}
-            value='views'
-          >
-            Views
-            <i className={
-              `fa fa-angle-${(activeFilter==='views' && direction==='UP')? 'up' : 'down'}`
-            } />
-          </button>
-          <button
-            className={`panel-header-data ${activeFilter==='visitors'? 'active' : ''}`}
-            onClick={this.onSortTypeChange}
-            value='visitors'
-          >
-            Visitors
-            <i className={
-              `fa fa-angle-${(activeFilter==='visitors' && direction==='UP')? 'up' : 'down'}`
-            } />
-          </button>
-          <button
-            className={`panel-header-data ${activeFilter==='CTR'? 'active' : ''}`}
-            onClick={this.onSortTypeChange}
-            value='CTR'
-          >
-            CTR
-            <i className={
-              `fa fa-angle-${(activeFilter==='CTR' && direction==='UP')? 'up' : 'down'}`
-            } />
-          </button>
-          <button
-            className={`panel-header-data ${activeFilter==='CPC'? 'active' : ''}`}
-            onClick={this.onSortTypeChange}
-            value='CPC'
-          >
-            CPC
-            <i className={
-              `fa fa-angle-${(activeFilter==='CPC' && direction==='UP')? 'up' : 'down'}`
-            } />
-          </button>
-          <button
-            className={`panel-header-data ${activeFilter==='CPV'? 'active' : ''}`}
-            onClick={this.onSortTypeChange}
-            value='CPV'
-          >
-            CPV
-            <i className={
-              `fa fa-angle-${(activeFilter==='CPV' && direction==='UP')? 'up' : 'down'}`
-            } />
-          </button>
-          <button
-            className={`panel-header-data ${activeFilter==='CPM'? 'active' : ''}`}
-            onClick={this.onSortTypeChange}
-            value='CPM'
-          >
-            CPM
-            <i className={
-              `fa fa-angle-${(activeFilter==='CPM' && direction==='UP')? 'up' : 'down'}`
-            } />
-          </button>
-          <button
-            className={`panel-header-data ${activeFilter==='status'? 'active' : ''}`}
-            onClick={this.onSortTypeChange}
-            value='status'
-          >
-            Status
-            <i className={
-              `fa fa-angle-${(activeFilter==='status' && direction==='UP')? 'up' : 'down'}`
-            } />
-          </button>
+      <div>
+        <header className='panel-header panel-item'>
+          {
+            map(panelHeaderItems, item => (
+              <PanelHeaderItem
+                direction={direction}
+                filter={activeFilter}
+                handler={this.onSortTypeChange}
+                value={item}
+                key={shortid.generate()}
+              />
+            ))
+          }
         </header>
+        <ul className='panel-list'>
+          {
+            map(data, item => (
+              <PanelItem data={item} key={shortid.generate()} />
+            ))
+          }
+        </ul>
       </div>
     )
   }
