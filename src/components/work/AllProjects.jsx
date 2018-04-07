@@ -28,24 +28,22 @@ class AllProjects extends Component {
     const { ordersData } = this.state;
     return (
       <Container className='all-projects'>
-        <div className='all-projects-content'>
-          <ul className='all-projects-header'>
-            <li>Project title</li>
-            <li>Value</li>
-            <li>Deadline</li>
-            <li>Time spent</li>
-            <li>Progress</li>
-            <li>Status</li>
-            <li>Assigned to</li>
-          </ul>
-          <ul className="all-projects-list">
-            {
-              map(ordersData, item => (
+        <ul className='all-projects-header'>
+          <li>Project title</li>
+          <li>Value</li>
+          <li>Deadline</li>
+          <li>Time spent</li>
+          <li>Progress</li>
+          <li>Status</li>
+          <li>Assigned to</li>
+        </ul>
+        <Row tag='ul' className="all-projects-list no-gutters">
+          {
+            map(ordersData, item => (
                 <Project order={item} key={shortid.generate()} />
-              ))
-            }
-          </ul>
-        </div>
+            ))
+          }
+        </Row>
       </Container>
     );
   }

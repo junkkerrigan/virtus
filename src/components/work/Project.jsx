@@ -1,18 +1,19 @@
 import React from 'react';
 import { Line } from 'rc-progress';
+import { Col } from 'reactstrap';
 import usersData from '../../data/usersProfilesData';
 
 import '../../scss/work/Project.scss';
 
 const determineColor = progress => {
   if (progress<=40) return '#e2e3e8';
-  else if (progress<=90) return '#2196f3';
+  if (progress<=90) return '#2196f3';
   return '#4caf50';
 };
 
 const determineProgress = progress => {
   if (progress<=40) return 'started';
-  else if (progress<=90) return 'in-work';
+  if (progress<=90) return 'in-work';
   return 'completed';
 };
 
@@ -24,7 +25,14 @@ const Project = props => {
     avatar, role, name
   } = usersData[assignedTo];
   return (
-    <li className={`project ${determineProgress(progress)}`}>
+    <Col
+      tag='li'
+      className={`project ${determineProgress(progress)}`}
+      xs={{ size: 12, offset: 0 }}
+      sm={{ size: 10, offset: 1 }}
+      md={{ size: 8, offset: 2 }}
+      lg={{ size: 12, offset: 0 }}
+    >
       <div className='project-data d-flex'>
         <p className='ellipsis'>{title}</p>
         <span className='project-details ellipsis'>{author}</span>
@@ -61,7 +69,7 @@ const Project = props => {
           <span className='ellipsis project-details'>{role}</span>
         </div>
       </div>
-    </li>
+    </Col>
   );
 };
 

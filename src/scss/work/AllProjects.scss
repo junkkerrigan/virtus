@@ -5,38 +5,24 @@
     margin-top: 60px;
     padding-bottom: 30px;
 
-    &-content {
-      @media (max-width: $_max_lg) {
-        max-width: 100%;
-        overflow: scroll;
+    @media (max-width: $_max_md) {
+      padding-top: 50px;
+    }
 
-        &::-webkit-scrollbar {
-          width: 0;
-          height: 8px;
-          border-radius: 6px;
-          background-color: #4d5060;
-          margin-top: -1px;
-
-          &-thumb {
-            background: $_blue;
-            border-radius: 6px;
-          }
-        }
+    &-list {
+      @media (max-width: $_max_sm) {
+        margin-top: 60px;
       }
     }
 
     &-header {
       width: 100%;
-      @media (max-width: $_max_lg) {
-        margin: 50px 0 15px;
-      }
-
-      @media (max-width: $_max_sm) {
-        margin: 110px 0 15px;
-      }
       margin: 100px 0 15px;
       display: flex;
-      min-width: $_min_lg;
+
+      @media (max-width: $_max_md) {
+        display: none;
+      }
 
       li {
         display: flex;
@@ -71,14 +57,8 @@
 
         &:nth-of-type(7) {
           width: 20%;
-
         }
       }
-    }
-
-    &-list {
-      padding: 0;
-      min-width: $_min_lg;
     }
   }
 }

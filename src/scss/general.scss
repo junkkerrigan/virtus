@@ -36,6 +36,7 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  display: block;
 }
 
 .hidden {
@@ -48,6 +49,7 @@ select {
   min-height: 100vh;
   background: $_dgrey;
   position: relative;
+  overflow: hidden;
 }
 
 .home-section-title {
