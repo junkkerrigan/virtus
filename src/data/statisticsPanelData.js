@@ -1,7 +1,10 @@
 export default [
   {
     'campaign': 'Lorem ipsum dolor sit amet tetur',
-    'time': '6 days',
+    'time': {
+      'since': new Date(2018, 4, 2),
+      'till': new Date(2018, 4, 8),
+    },
     'views': 358000,
     'visitors': 58200,
     'CTR': 25,
@@ -12,7 +15,10 @@ export default [
   },
   {
     'campaign': 'Sed do eiusmod tempor',
-    'time': '7 hours',
+    'time': {
+      'since': new Date(2018, 4, 8, 3),
+      'till': new Date(2018, 4, 8, 10),
+    },
     'views': 1200,
     'visitors': 800,
     'CTR': 10,
@@ -23,7 +29,10 @@ export default [
   },
   {
     'campaign': 'Consectetur adipisicing elit sed',
-    'time': '3 days',
+    'time': {
+      'since': new Date(2018, 4, 5),
+      'till': new Date(2018, 4, 8),
+    },
     'views': 69000,
     'visitors': 7300,
     'CTR': 19,

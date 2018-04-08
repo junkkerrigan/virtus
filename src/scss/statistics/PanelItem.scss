@@ -1,1 +1,57 @@
 @import '../variables';
+
+.statistics-page .panel {
+  &-item {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(156, 161, 178, 0.3);
+  }
+
+  &-data {
+    @include font(white, 500, 14);
+    display: flex;
+    align-items: center;
+
+    &.status {
+      text-transform: capitalize;
+
+      &.active::before {
+        content: '';
+        display: block;
+        height: 11px;
+        width: 11px;
+        border-radius: 50%;
+        background: $_green;
+        margin-right: 10px;
+      }
+
+      &.disable::before {
+        content: '';
+        display: block;
+        height: 11px;
+        width: 11px;
+        border-radius: 50%;
+        background: $_red;
+        margin-right: 10px;
+      }
+    }
+
+    &:nth-of-type(1) {
+      padding-left: 50px;
+      max-width: 30%;
+      min-width: 30%;
+    }
+
+    &:nth-of-type(n+2):nth-of-type(-n+4), &:nth-of-type(9) {
+      max-width: 10%;
+      min-width: 10%;
+    }
+
+    &:nth-of-type(n+5):nth-of-type(-n+8) {
+      max-width: 7.5%;
+      min-width: 7.5%;
+    }
+  }
+}
