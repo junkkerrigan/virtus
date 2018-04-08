@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import map from 'lodash/map';
+import { Row, Col } from 'reactstrap';
 import shortid from 'shortid';
 import moment from 'moment';
 import PanelItem from './PanelItem';
 import data from '../../data/statisticsPanelData';
 
-import '../../scss/statistics/StatisticcsPanel.scss';
+import '../../scss/statistics/StatisticsPanel.scss';
 
 const changeDirection = currentDir => currentDir==='UP'? 'DOWN' : 'UP';
 
@@ -68,8 +69,15 @@ class StatisticsPanel extends Component {
       data.sort((a, b) => comparator(b, a, activeFilter));
     }
     return (
-      <div>
-        <header className='panel-header panel-item'>
+      <Row noGutters className='position-relative'>
+        <Col
+          className='panel-header panel-item'
+          tag='header'
+          xs={{ size: 12, offset: 0 }}
+          sm={{ size: 10, offset: 1 }}
+          md={{ size: 8, offset: 2 }}
+          lg={{ size: 12, offset: 0 }}
+        >
           {
             map(panelHeaderItems, item => (
               <PanelHeaderItem
@@ -81,15 +89,22 @@ class StatisticsPanel extends Component {
               />
             ))
           }
-        </header>
-        <ul className='panel-list'>
+        </Col>
+        <Col
+          tag='ul'
+          className='panel-list'
+          xs={{ size: 12, offset: 0 }}
+          sm={{ size: 10, offset: 1 }}
+          md={{ size: 8, offset: 2 }}
+          lg={{ size: 12, offset: 0 }}
+        >
           {
             map(data, item => (
               <PanelItem data={item} key={shortid.generate()} />
             ))
           }
-        </ul>
-      </div>
+        </Col>
+      </Row>
     )
   }
 }

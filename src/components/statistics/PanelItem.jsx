@@ -37,12 +37,12 @@ const PanelItem = props => {
     {
       map(data, (item, key) => (
         <div
-          className={`panel-data ellipsis
+          className={`panel-data
             ${key==='status'? 'status' : ''}
-            ${item==='active'? 'active' : 'disable'}`}
+            ${(key==='status'? item==='active'? 'active' : 'disable' : '')}`}
           key={shortid.generate()}
         >
-          {change(key, item)}
+          <div className='ellipsis'>{change(key, item)}</div>
         </div>
       ))
     }

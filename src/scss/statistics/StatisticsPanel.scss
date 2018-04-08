@@ -9,9 +9,23 @@
 
   &-header {
     background: $_lgrey;
+    box-shadow: 0 3px 80px rgba(23, 24, 32, 0.2);
     border-bottom: none;
 
+    &::before {
+      content: 'Sort by:';
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translate(0, -50%);
+      @include font(white, 700, 16);
+    }
+
     &-data {
+      &::after {
+        content: '' !important;
+      }
+
       @include font($_fgrey, 700, 14);
       text-align: left;
       text-transform: capitalize;
