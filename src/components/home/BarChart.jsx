@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { Bar } from 'react-chartjs-2';
 import config from '../../config/barChartConfig';
 import data from '../../data/barChartData';
@@ -38,7 +39,9 @@ class BarChart extends Component {
       >
         <div className='bar-chart'>
           <header className='bar-chart-header d-flex'>
-            <h3 className='bar-chart-title home-section-title'>Sales report</h3>
+            <h3 className='bar-chart-title home-section-title'>
+              <Link to='/statistics'>Sales report</Link>
+            </h3>
             <div className='bar-chart-period-wrapper'>
               <select className='bar-chart-period' onChange={this.onPeriodChange}>
                 <option value='year'>Year</option>

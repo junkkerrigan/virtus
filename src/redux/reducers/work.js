@@ -5,12 +5,12 @@ const initialState = {
 
 const work = (state = initialState, action) => {
   switch (action.type) {
-    case 'TOGGLE_TAB':
+    case 'TOGGLE_WORKS_TAB':
       return {
         ...state,
         activeTab: action.payload
       };
-    case 'TOGGLE_FILTER':
+    case 'TOGGLE_WORKS_FILTER':
       return {
         ...state,
         activeFilter: action.payload

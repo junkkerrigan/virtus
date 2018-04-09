@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from 'rc-progress';
 import { Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import usersData from '../../data/usersProfilesData';
 
 import '../../scss/work/Project.scss';
@@ -34,7 +35,7 @@ const Project = props => {
       lg={{ size: 12, offset: 0 }}
     >
       <div className='project-data d-flex'>
-        <p className='ellipsis'>{title}</p>
+        <Link to='/work' className='ellipsis'>{title}</Link>
         <span className='project-details ellipsis'>{author}</span>
       </div>
       <div className='project-data d-flex'>

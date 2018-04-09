@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav, NavItem, NavLink, Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import map from 'lodash/map';
-import { toggleTab, toggleFilter } from '../../redux/actions';
+import { toggleWorksTab, toggleWorksFilter } from '../../redux/actions';
 
 import '../../scss/work/Navigation.scss';
 
@@ -15,8 +15,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleTab: (tab => dispatch(toggleTab(tab))),
-    toggleFilter: (filter => dispatch(toggleFilter(filter)))
+    toggleTab: (tab => dispatch(toggleWorksTab(tab))),
+    toggleFilter: (filter => dispatch(toggleWorksFilter(filter)))
   };
 };
 

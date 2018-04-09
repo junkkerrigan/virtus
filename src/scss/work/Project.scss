@@ -45,6 +45,11 @@
   }
 
   &-data {
+    a {
+      @include font(white, 700, 14);
+      text-decoration: none;
+    }
+
     @include font(white, 700, 14);
     width: 100%;
     position: relative;

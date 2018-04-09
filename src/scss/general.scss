@@ -53,5 +53,11 @@ select {
 }
 
 .home-section-title {
-  @include font(white, 700, 20);
+  display: flex;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    @include font(white, 700, 20);
+  }
 }

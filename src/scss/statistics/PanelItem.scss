@@ -10,7 +10,12 @@
   }
 
   &-data {
-    @include font(white, 500, 14);
+    a {
+      @include font(white, 700, 14);
+      text-decoration: none;
+    }
+
+    @include font(white, 700, 14);
     display: flex;
     align-items: center;
     position: relative;

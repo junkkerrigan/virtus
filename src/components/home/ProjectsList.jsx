@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import map from 'lodash/map';
 import shortid from 'shortid';
 import ProjectItem from './ProjectItem';
@@ -17,7 +18,9 @@ const ProjectsList = () => (
     className="project-list-wrapper"
   >
     <header className="project-list-header d-flex">
-      <h3 className="home-section-title">Your projects</h3>
+      <h3 className="home-section-title">
+        <Link to='/work'>Your projects</Link>
+      </h3>
     </header>
     <ul className="project-list">
       {

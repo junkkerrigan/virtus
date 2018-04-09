@@ -2,6 +2,7 @@ import React from 'react';
 import map from 'lodash/map';
 import shortid from 'shortid';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 import '../../scss/statistics/PanelItem.scss';
 
@@ -42,7 +43,14 @@ const PanelItem = props => {
             ${(key==='status'? item==='active'? 'active' : 'disable' : '')}`}
           key={shortid.generate()}
         >
-          <div className='ellipsis'>{change(key, item)}</div>
+          <div className='ellipsis'>
+            {
+              key==='campaign'?
+                  <Link to='/statistics'>{change(key, item)}</Link>
+                  :
+                  change(key, item)
+            }
+          </div>
         </div>
       ))
     }
