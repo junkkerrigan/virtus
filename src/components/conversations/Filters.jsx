@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import { connect } from 'react-redux';
 import { toggleMessagesFilter, toggleDialogsFilter } from '../../redux/actions';
 
@@ -11,60 +11,67 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  messagesFilter: state.conversations.messagesFilter
+  messagesFilter: state.conversations.messagesFilter,
+  data: state.conversations.data
 });
 
 const Filters = props => {
   const {
-    toggleMessagesFilter, toggleDialogsFilter, newMessages, messagesFilter
+    toggleMessagesFilter, toggleDialogsFilter, data, messagesFilter
   } = props;
-  return (<div className='filters-wrapper'>
-    <Container className='filters d-flex'>
-      <div>
-        <label className={`filters-messages
-          ${messagesFilter==='inbox'? 'active' : ''}`}>
-          Inbox {
-            newMessages? `(${newMessages})` : ''
-          }
-          <input
-            type='radio'
-            name='messagesFilter'
-            value='inbox'
-            onChange={event => toggleMessagesFilter(event.target.value)}
-          />
-        </label>
-        <label className={`filters-messages
-          ${messagesFilter==='sent'? 'active' : ''}`}>
-          Sent
-          <input
-            type='radio'
-            name='messagesFilter'
-            value='sent'
-            onChange={event => toggleMessagesFilter(event.target.value)}
-          />
-        </label>
-        <label className={`filters-messages
-          ${messagesFilter==='trash'? 'active' : ''}`}>
-          Trash
-          <input
-            type='radio'
-            name='messagesFilter'
-            value='trash'
-            onChange={event => toggleMessagesFilter(event.target.value)}
-          />
-        </label>
-      </div>
-      <div className='filters-dialogs-wrapper'>
-        <select
-          className='filters-dialogs'
-          onChange={event => toggleDialogsFilter(event.target.value)}
-        >
-          <option value='date'>Date</option>
-          <option value='names'>Names</option>
-        </select>
-      </div>
-    </Container>
-  </div>)
+  let newMessages = 0;
+  for (let key in data) {
+    data[key].active.forEach(item => { if (item.status==='new') newMessages++; })
+  }
+  return (
+    <div className='filters-wrapper'>
+      <Container className='filters d-flex'>
+        <div>
+          <label className={`filters-messages
+            ${messagesFilter==='inbox'? 'active' : ''}`}>
+            Inbox {
+              newMessages? `(${newMessages})` : ''
+            }
+            <input
+              type='radio'
+              name='messagesFilter'
+              value='inbox'
+              onChange={event => toggleMessagesFilter(event.target.value)}
+            />
+          </label>
+          <label className={`filters-messages
+            ${messagesFilter==='sent'? 'active' : ''}`}>
+            Sent
+            <input
+              type='radio'
+              name='messagesFilter'
+              value='sent'
+              onChange={event => toggleMessagesFilter(event.target.value)}
+            />
+          </label>
+          <label className={`filters-messages
+            ${messagesFilter==='trash'? 'active' : ''}`}>
+            Trash
+            <input
+              type='radio'
+              name='messagesFilter'
+              value='trash'
+              onChange={event => toggleMessagesFilter(event.target.value)}
+            />
+          </label>
+        </div>
+        <div className='filters-dialogs-wrapper'>
+          <select
+            className='filters-dialogs'
+            onChange={event => toggleDialogsFilter(event.target.value)}
+          >
+            <option value='date'>Date</option>
+            <option value='names'>Names</option>
+          </select>
+        </div>
+      </Container>
+    </div>
+  )
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);

@@ -1,0 +1,36 @@
+@import "../variables";
+
+.conversations-page .dialog {
+  padding: 30px 20px 30px 40px;
+  border-bottom: 1px solid #505364;
+  cursor: pointer;
+  background: $_dgrey;
+
+  &.active {
+    background: $_grey;
+  }
+
+  &-user {
+    @include font(white, 700, 17);
+    margin-left: 10px;
+
+    &-wrapper {
+      max-width: 70%;
+    }
+  }
+
+  &-time {
+    @include font($_fgrey, 700, 12);
+    white-space: nowrap;
+
+    &.new {
+      color: $_blue;
+    }
+  }
+
+  &-message {
+    margin-top: 20px;
+    @include font($_fgrey, 700, 14);
+    line-height: 26px;
+  }
+}

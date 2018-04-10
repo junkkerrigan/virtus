@@ -18,3 +18,13 @@ export const toggleMessagesFilter = filter => ({ // conversations page
   payload: filter
 });
 
+export const addConversationsData = data => ({ // conversations page
+  type: 'ADD_CONVERSATIONS_DATA',
+  payload: data
+});
+
+export const chooseDialog = dialog => ({ // conversations page
+  type: 'CHOOSE_DIALOG',
+  payload: dialog
+});
+
