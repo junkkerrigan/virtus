@@ -1,5 +1,4 @@
 import React from 'react';
-import { Col } from 'reactstrap';
 import map from 'lodash/map';
 import shortid from 'shortid';
 import moment from 'moment';
@@ -13,11 +12,19 @@ const mapStateToProps = state => ({
   dialogsFilter: state.conversations.dialogsFilter
 });
 
-const comparator = (a, b) => {
-  const f=moment(a[a.length - 1].date), s=moment(b[b.length - 1].date);
-  if (s.diff(f, 'minutes', true)>0) return 1;
-  if (s.diff(f, 'minutes', true)<0) return -1;
-  return 0;
+const comparator = {
+  date: (a, b) => {
+    const aa=a[1].active, bb=b[1].active;
+    const f=moment(aa[aa.length - 1].date), s=moment(bb[bb.length - 1].date);
+    if (s.diff(f, 'minutes', true)>0) return 1;
+    if (s.diff(f, 'minutes', true)<0) return -1;
+    return 0;
+  },
+  names: (a, b) => {
+    if (a[0]>b[0]) return 1;
+    if (a[0]<b[0]) return -1;
+    return 0;
+  }
 };
 
 const DialogsList = props => {
@@ -26,9 +33,9 @@ const DialogsList = props => {
   for (let key in data) {
     dataArray.push([key, data[key]]);
   }
-  dataArray.sort((a, b) => comparator(a[1].active, b[1].active));
+  dataArray.sort((a, b) => comparator[dialogsFilter](a, b));
   return (
-    <Col className='dialogs' xs='4'>
+    <div className='dialogs'>
       <ul className='dialogs-list'>
         {
           map(dataArray, item => {
@@ -43,7 +50,7 @@ const DialogsList = props => {
       <button className='dialogs-new'>
         New conversation
       </button>
-    </Col>
+    </div>
   );
 };
 

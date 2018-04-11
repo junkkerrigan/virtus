@@ -1,0 +1,59 @@
+@import "../variables";
+
+.conversations-page .messages {
+  width: 54%;
+  position: relative;
+
+  &-form {
+    position: absolute;
+    width: calc(100% - 30px);
+    bottom: 20px;
+    left: 15px;
+  }
+
+  &-input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    padding: 20px 15px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(156, 161, 178, 0.3);
+    background-color: #404359;
+
+    &::-webkit-input-placeholder {
+      @include font($_fgrey, 500, 14);
+    }
+
+    outline: none!important;
+    @include font(white, 500, 14);
+  }
+
+  &-sent, &-files {
+    position: absolute;
+    right: 40px;
+    bottom: 50%;
+    transform: translate(0, -50%);
+    margin: 0;
+    width: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    input {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+
+    i {
+      color: $_fgrey;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+
+  &-files {
+    right: 15px;
+  }
+}

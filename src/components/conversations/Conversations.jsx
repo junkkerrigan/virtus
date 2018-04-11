@@ -3,6 +3,7 @@ import { Container, Row } from 'reactstrap';
 import { connect } from 'react-redux';
 import Filters from './Filters';
 import DialogsList from './DialogsList';
+import MessagesList from './MessagesList';
 import data from '../../data/conversationsData';
 import { addConversationsData } from '../../redux/actions';
 
@@ -25,6 +26,7 @@ class Conversations extends Component {
         <Container>
           <Row>
             <DialogsList />
+            <MessagesList />
           </Row>
         </Container>
       </div>
