@@ -4,6 +4,18 @@
   width: 54%;
   position: relative;
 
+  &-list {
+    padding: 30px 15px 0;
+    max-height: calc(100vh - 200px);
+    min-height: calc(100vh - 200px);
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
   &-form {
     position: absolute;
     width: calc(100% - 30px);
@@ -28,6 +40,7 @@
 
     outline: none!important;
     @include font(white, 500, 14);
+
   }
 
   &-sent, &-files {

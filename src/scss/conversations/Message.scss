@@ -1,3 +1,72 @@
-.conversations-page {
+@import "../variables";
 
+.conversations-page .message {
+  flex-direction: column;
+  margin-bottom: 45px;
+
+  &.out {
+    padding-right: 30%;
+    align-items: flex-start;
+
+
+    .message {
+      &-text-wrapper {
+        background: #404359;
+        box-shadow: 0 3px 80px rgba(23, 24, 32, 0.3);
+        border-radius: 10px 10px 10px 0;
+      }
+
+      &-time {
+        margin-left: 65px;
+      }
+    }
+
+    img {
+      margin-right: 15px;
+    }
+  }
+
+  &.in {
+    padding-left: 30%;
+    align-items: flex-end;
+
+    .message {
+      &-text-wrapper {
+        background: $_blue;
+        border-radius: 10px 10px 0 10px;
+      }
+
+      &-user {
+        flex-direction: row-reverse;
+      }
+
+      &-time {
+        margin-right: 65px;
+      }
+    }
+
+    img {
+      margin-left: 15px;
+    }
+  }
+
+  &-user {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &-text {
+    @include font(white, 500, 14);
+    line-height: 24px;
+
+    &-wrapper {
+      max-width: calc(100% - 65px);
+      padding: 15px;
+    }
+  }
+
+  &-time {
+    @include font($_fgrey, 700, 12);
+    margin-top: 5px;
+  }
 }

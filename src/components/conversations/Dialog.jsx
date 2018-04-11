@@ -15,24 +15,24 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const getDate = date => {
-  const mdate = moment(date), today = moment(new Date(2016, 4, 11, 18, 0));
-  if (today.diff(mdate, 'days', true)<1) {
-    let time='Today, ' + mdate.get('hour')%12 + ':' +
-      mdate.get('minute');
-    time+=mdate.get('hour')<=12? ' AM' : ' PM';
-    return time;
-  }
-  /*if (today.diff(mdate, 'days', true)<2) {
-    let time='Yesterday, ' + (mdate.get('hour')%12).toString(10) + ':' +
-        mdate.get('minute').toString(10);
-    time+=mdate.get('hour')<=12? ' AM' : ' PM';
-    return time;
-  }*/
+  const m = moment(date), today = moment(new Date(2016, 4, 11, 18, 0));
   const months = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
-  let time = mdate.get('date') + ' ' + months[mdate.get('month')];
-  if (today.diff(mdate, 'years', true)>=1) time+= mdate.get('year');
+  if (today.diff(m, 'days', true)<1) {
+    let time='Today, ' + m.get('hour')%12 + ':' + m.get('minute');
+    time+=m.get('hour')<=12? ' AM' : ' PM';
+    return time;
+  }
+  /*if (today.diff(m, 'days', true)<2) {
+    let time='Yesterday, ' + (m.get('hour')%12).toString(10) + ':' +
+        m.get('minute').toString(10);
+    time+=m.get('hour')<=12? ' AM' : ' PM';
+    return time;
+  }*/
+
+  let time = m.get('date') + ' ' + months[m.get('month')];
+  if (today.diff(m, 'years', true)>=1) time+= m.get('year');
   return time;
 };
 
@@ -46,7 +46,7 @@ const Dialog = props => {
   const { text, status, date, sender } = lastMessage;
   const { avatar, name } = usersData[user];
   return (
-    <div
+    <li
       className={`dialog ${currentDialog===user? 'active' : ''}`}
       onClick={() => chooseDialog(user)}
     >
@@ -61,7 +61,7 @@ const Dialog = props => {
           </span>
       </div>
       <p className='dialog-message'>{cutText(text)}</p>
-    </div>
+    </li>
   );
 };
 

@@ -1,7 +1,7 @@
 const initialState = {
   messagesFilter: 'inbox',
   dialogsFilter: 'date',
-  conversationsData: {},
+  data: {},
   currentDialog: ''
 };
 
