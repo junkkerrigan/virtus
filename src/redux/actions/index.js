@@ -28,3 +28,9 @@ export const chooseDialog = dialog => ({ // conversations page
   payload: dialog
 });
 
+export const addMessage = message => ({ // conversations page
+  type: 'ADD_MESSAGE',
+  payload: message
+});
+
+

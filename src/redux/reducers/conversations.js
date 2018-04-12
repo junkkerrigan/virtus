@@ -27,6 +27,11 @@ const conversations = (state = initialState, action) => {
         ...state,
         currentDialog: action.payload
       };
+    case 'ADD_MESSAGE':
+      return {
+        ...state,
+        data: action.payload
+      };
     default:
       return state;
   }
