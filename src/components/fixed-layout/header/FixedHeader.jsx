@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Notifications from './Notifications';
 import UserMenu from './UserMenu';
