@@ -20,7 +20,7 @@ const Message = props => {
   return (
     <li className={`message d-flex ${sender==='harry'? 'in' : 'out'}`}>
       <div className='d-flex message-user'>
-        <img src={usersData[sender].avatar} width='50' height='50' />
+        <img src={usersData[sender].avatar} width='50' height='50' alt='user avatar' />
         <div className='message-text-wrapper'>
           <p className='message-text'>{text}</p>
         </div>

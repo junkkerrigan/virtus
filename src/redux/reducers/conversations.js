@@ -2,7 +2,8 @@ const initialState = {
   messagesFilter: 'inbox',
   dialogsFilter: 'date',
   data: {},
-  currentDialog: ''
+  currentDialog: '',
+  lastMessage: true
 };
 
 const conversations = (state = initialState, action) => {
@@ -32,6 +33,12 @@ const conversations = (state = initialState, action) => {
         ...state,
         data: action.payload
       };
+    case 'CHANGE_LAST_MESSAGE': {
+      return {
+        ...state,
+        lastMessage: !state.lastMessage
+      };
+    }
     default:
       return state;
   }

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Filters from './Filters';
 import DialogsList from './DialogsList';
 import MessagesList from './MessagesList';
+import UserData from './UserData';
 import data from '../../data/conversationsData';
 import { addConversationsData } from '../../redux/actions';
 
@@ -27,6 +28,7 @@ class Conversations extends Component {
           <Row>
             <DialogsList />
             <MessagesList />
+            <UserData />
           </Row>
         </Container>
       </div>

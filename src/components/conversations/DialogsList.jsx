@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import map from 'lodash/map';
 import shortid from 'shortid';
 import moment from 'moment';
@@ -9,7 +9,8 @@ import '../../scss/conversations/DialogsList.scss';
 
 const mapStateToProps = state => ({
   data: state.conversations.data,
-  dialogsFilter: state.conversations.dialogsFilter
+  dialogsFilter: state.conversations.dialogsFilter,
+  lastMessage: state.conversations.lastMessage
 });
 
 const comparator = {
@@ -27,31 +28,33 @@ const comparator = {
   }
 };
 
-const DialogsList = props => {
-  const { data, dialogsFilter } = props;
-  let dataArray=[];
-  for (let key in data) {
-    dataArray.push([key, data[key]]);
+class DialogsList extends Component {
+  render() {
+    const { dialogsFilter, data } = this.props;
+    let dataArray=[];
+    for (let key in data) {
+      dataArray.push([key, data[key]]);
+    }
+    dataArray.sort((a, b) => comparator[dialogsFilter](a, b));
+    return (
+      <div className='dialogs'>
+        <ul className='dialogs-list'>
+          {
+            map(dataArray, item => {
+              return <Dialog
+                key={shortid.generate()}
+                lastMessage={item[1].active[item[1].active.length-1]}
+                user={item[0]}
+              />
+            })
+          }
+        </ul>
+        <button className='dialogs-new'>
+          New conversation
+        </button>
+      </div>
+    );
   }
-  dataArray.sort((a, b) => comparator[dialogsFilter](a, b));
-  return (
-    <div className='dialogs'>
-      <ul className='dialogs-list'>
-        {
-          map(dataArray, item => {
-            return <Dialog
-              key={shortid.generate()}
-              lastMessage={item[1].active[item[1].active.length-1]}
-              user={item[0]}
-            />
-          })
-        }
-      </ul>
-      <button className='dialogs-new'>
-        New conversation
-      </button>
-    </div>
-  );
-};
+}
 
 export default connect(mapStateToProps)(DialogsList);

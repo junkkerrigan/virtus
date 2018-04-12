@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { chooseDialog } from '../../redux/actions';
 import usersData from '../../data/usersProfilesData';
@@ -15,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const getDate = date => {
-  const m = moment(date), today = moment(new Date(2016, 4, 11, 18, 0));
+  const m = moment(date), today = moment(new Date());
   const months = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
@@ -32,7 +33,7 @@ const getDate = date => {
   }*/
 
   let time = m.get('date') + ' ' + months[m.get('month')];
-  if (today.diff(m, 'years', true)>=1) time+= m.get('year');
+  if (today.diff(m, 'years', true)>=1) time+= ' ' + m.get('year');
   return time;
 };
 
@@ -52,7 +53,7 @@ const Dialog = props => {
     >
       <div className='d-flex justify-content-between align-items-center'>
         <div className='d-flex align-items-center dialog-user-wrapper'>
-          <img src={avatar} width='36' height='36' />
+          <img src={avatar} width='36' height='36' alt='user avatar' />
           <h5 className='dialog-user ellipsis mw-100'>{name}</h5>
         </div>
         <span className={`dialog-time

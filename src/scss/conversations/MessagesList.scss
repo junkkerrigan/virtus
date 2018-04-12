@@ -1,8 +1,10 @@
 @import "../variables";
 
 .conversations-page .messages {
-  width: 54%;
+  width: 50%;
   position: relative;
+  background: $_grey;
+  box-shadow: 0 3px 80px rgba(23, 24, 32, 0.3);
 
   &-list {
     padding: 30px 15px 0;

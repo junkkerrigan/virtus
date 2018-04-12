@@ -15,7 +15,8 @@ export default {
     email: 'joleneslatter@gmail.com',
     phone: '+48 500 400 300',
     address: '47 Gagarina St, Cherkassy, Ukraine',
-    organization: 'Themeforest'
+    organization: 'Themeforest',
+    status: 'online'
   },
   michelle: {
     name: 'Michelle Stewart',
@@ -25,7 +26,8 @@ export default {
     email: 'michellestewart@gmail.com',
     phone: '+48 500 400 300',
     address: '46 Gagarina St, Cherkassy, Ukraine',
-    organization: 'Facebook'
+    organization: 'Facebook',
+    status: 'online'
   },
   queen: {
     name: 'Freddie Mercury',
@@ -35,7 +37,8 @@ export default {
     email: 'really@gmail.com',
     phone: '+48 500 400 300',
     address: '45 Heroiv Dnipra St, Cherkassy, Ukraine',
-    organization: 'Queen'
+    organization: 'Queen',
+    status: 'offline'
   },
   lanadelrey: {
     name: 'Lana Del Rey',
@@ -45,7 +48,8 @@ export default {
     email: 'lanadelrey@gmail.com',
     phone: '+48 500 400 300',
     address: '280, Blahovisna St, Cherkassy, Ukraine',
-    organization: 'Lana Del Rey'
+    organization: 'Lana Del Rey',
+    status: 'online'
   },
   dominic: {
     name: 'Dominic Lynton',
@@ -55,7 +59,8 @@ export default {
     email: 'dominiclynton@gmail.com',
     phone: '+48 500 400 300',
     address: '65 Lorem St, Warsaw, PL',
-    organization: 'Geekhub'
+    organization: 'Geekhub',
+    status: 'offline'
   },
   lyan: {
     name: 'Lyan Roach',
@@ -65,7 +70,8 @@ export default {
     email: 'lyanroach@gmail.com',
     phone: '+48 500 400 300',
     address: '65 Lorem St, Warsaw, PL',
-    organization: 'Symu.co'
+    organization: 'Symu.co',
+    status: 'online'
   },
   harry: {
     name: 'Harry Doe',
@@ -75,6 +81,7 @@ export default {
     email: 'harrydoe@gmail.com',
     phone: '+48 500 400 300',
     address: '65 Lorem St, Warsaw, PL',
-    organization: 'Symu.com'
+    organization: 'Symu.com',
+    status: 'offline'
   }
 };

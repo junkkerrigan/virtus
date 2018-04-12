@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import map from 'lodash/map';
 import shortid from 'shortid';
-import { addMessage } from '../../redux/actions';
+import { addMessage, changeLastMessage } from '../../redux/actions';
 import Message from './Message';
 
 import '../../scss/conversations/MessagesList.scss';
@@ -14,30 +14,28 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  sendMessage: newData => dispatch(addMessage(newData))
+  sendMessage: newData => dispatch(addMessage(newData)),
+  changeLastMessage: messageData => dispatch(changeLastMessage(messageData))
 });
 
 //TODO: add callback from bot
 
 class MessagesList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: this.props.data
-    }
-  }
-
   onMessageSend = event => {
     event.preventDefault();
-    let { currentDialog, data, sendMessage, messagesFilter } = this.props;
+    let {
+      currentDialog, data, sendMessage, messagesFilter, changeLastMessage
+    } = this.props;
     if (currentDialog && messagesFilter!=='trash') {
-      data[currentDialog].active.push({
+      const newMessage = {
         text: this.messageInput.value,
         date: new Date(),
         sender: 'harry',
         status: 'new'
-      });
+      };
+      data[currentDialog].active.push(newMessage);
       sendMessage(data);
+      changeLastMessage();
       this.setState({
         data
       })
@@ -51,8 +49,7 @@ class MessagesList extends Component {
   }
 
   render() {
-    let { currentDialog, messagesFilter } = this.props;
-    let { data } = this.state;
+    let { currentDialog, messagesFilter, data } = this.props;
     if (currentDialog) {
       if (messagesFilter === 'trash') {
         data = data[currentDialog].trash;

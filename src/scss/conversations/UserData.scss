@@ -1,0 +1,53 @@
+@import "../variables";
+
+.conversations-page .user {
+  &-data {
+    width: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+    max-height: calc(100vh - 120px);
+    min-height: calc(100vh - 120px);
+    background: $_dgrey;
+    box-shadow: 0 3px 80px rgba(23, 24, 32, 0.3);
+
+    img {
+      min-width: 40%;
+
+    }
+
+    &.no-dialog > * {
+      display: none;
+    }
+
+    text-align: center;
+  }
+
+  &-secondary {
+    @include font(white, 700, 12);
+    line-height: 24px;
+    margin-bottom: 15px;
+
+    &-title {
+      @include font($_fgrey, 700, 12);
+      margin-bottom: 10px;
+    }
+  }
+
+  &-description {
+    @include font($_fgrey, 700, 12);
+    margin: 20px 0 30px;
+    line-height: 24px;
+    max-height: 100px;
+  }
+
+  &-name {
+    @include font(white, 700, 20);
+    margin: 30px 0 5px;
+  }
+
+  &-role {
+    @include font($_fgrey, 700, 14);
+  }
+}

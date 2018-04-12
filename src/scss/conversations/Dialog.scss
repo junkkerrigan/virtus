@@ -32,5 +32,6 @@
     margin-top: 20px;
     @include font($_fgrey, 700, 14);
     line-height: 26px;
+    word-break: break-word;
   }
 }

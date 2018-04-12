@@ -53,6 +53,7 @@
   &-user {
     display: flex;
     align-items: flex-end;
+    max-width: 100%;
   }
 
   &-text {
@@ -63,6 +64,8 @@
       max-width: calc(100% - 65px);
       padding: 15px;
     }
+    max-width: 100%;
+    word-break: break-word;
   }
 
   &-time {
