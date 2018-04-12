@@ -29,6 +29,16 @@ const comparator = {
 };
 
 class DialogsList extends Component {
+  state = {
+    isDialogsOpen: false
+  };
+
+  onDialogsOpen = () => {
+    this.setState({
+      isDialogsOpen: !this.state.isDialogsOpen
+    })
+  };
+
   render() {
     const { dialogsFilter, data } = this.props;
     let dataArray=[];
@@ -37,7 +47,8 @@ class DialogsList extends Component {
     }
     dataArray.sort((a, b) => comparator[dialogsFilter](a, b));
     return (
-      <div className='dialogs'>
+      <div className={`dialogs ${this.state.isDialogsOpen? 'open' : ''}`}>
+        <button type='button' className='fa fa-bars dialogs-toggle' onClick={this.onDialogsOpen}/>
         <ul className='dialogs-list'>
           {
             map(dataArray, item => {

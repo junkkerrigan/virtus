@@ -50,6 +50,7 @@ class MessagesList extends Component {
 
   render() {
     let { currentDialog, messagesFilter, data } = this.props;
+    let noDialog = false;
     if (currentDialog) {
       if (messagesFilter === 'trash') {
         data = data[currentDialog].trash;
@@ -57,16 +58,19 @@ class MessagesList extends Component {
         data = data[currentDialog].active;
         data=data.filter(item => item.sender==='harry');
       } else data=data[currentDialog].active;
-    } else data=[];
+    } else noDialog = true;
     return (
-      <div className='messages'>
-        <ul className='messages-list' ref={ list => this.messagesList = list }>
-          {
-            map(data, item => {
-              return <Message key={shortid.generate()} message={item} />;
-            })
-          }
-        </ul>
+      <div className={`messages ${noDialog? 'no-dialog' : ''}`}>
+        {
+          noDialog? <p >No dialog selected</p> :
+            <ul className='messages-list' ref={ list => this.messagesList = list }>
+              {
+                map(data, item => {
+                  return <Message key={shortid.generate()} message={item} />;
+                })
+              }
+            </ul>
+        }
         <form action='#' method='post' className='messages-form' onSubmit={this.onMessageSend}>
           <input
             type='text'
@@ -75,9 +79,10 @@ class MessagesList extends Component {
             name='userMessage'
             ref={ input => this.messageInput = input }
           />
-          <label className='messages-sent'>
+          <label
+            className='messages-send'>
             <i className='fa fa-paper-plane' />
-            <input type='submit' className='messages-send' value='' />
+            <input type='submit' value='' />
           </label>
           <label className='messages-files'>
             <i className='fa fa-paperclip' />

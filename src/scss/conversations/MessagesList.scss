@@ -1,10 +1,35 @@
 @import "../variables";
 
 .conversations-page .messages {
-  width: 50%;
+  @media (min-width: $_min_lg) {
+    width: 50%;
+  }
+
+  @media (max-width: $_max_md) {
+    width: 60%;
+  }
+
+  @media (max-width: $_max_sm) {
+    width: 100%;
+  }
+
   position: relative;
   background: $_grey;
   box-shadow: 0 3px 80px rgba(23, 24, 32, 0.3);
+
+  &.no-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > p {
+      @include font($_fgrey, 700, 18);
+
+      @media (max-width: $_max_sm) {
+        font-size: 14px;
+      }
+    }
+  }
 
   &-list {
     padding: 30px 15px 0;
@@ -30,7 +55,7 @@
     bottom: 0;
     left: 0;
     height: 100%;
-    padding: 20px 15px;
+    padding: 20px 80px 20px 15px;
     width: 100%;
     border-radius: 10px;
     border: 1px solid rgba(156, 161, 178, 0.3);
@@ -38,6 +63,14 @@
 
     &::-webkit-input-placeholder {
       @include font($_fgrey, 500, 14);
+
+      @media (max-width: $_max_sm) {
+        font-size: 0;
+      }
+    }
+
+    @media (max-width: $_max_sm) {
+      padding: 20px 65px 20px 10px;
     }
 
     outline: none!important;
@@ -45,7 +78,7 @@
 
   }
 
-  &-sent, &-files {
+  &-send, &-files {
     position: absolute;
     right: 40px;
     bottom: 50%;
@@ -54,6 +87,10 @@
     width: 0;
     display: flex;
     justify-content: flex-end;
+
+    @media (max-width: $_max_sm) {
+      right: 25px;
+    }
 
     input {
       width: 0;
@@ -70,5 +107,9 @@
 
   &-files {
     right: 15px;
+
+    @media (max-width: $_max_sm) {
+      right: 10px;
+    }
   }
 }

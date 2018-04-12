@@ -61,3 +61,13 @@ select {
     @include font(white, 700, 20);
   }
 }
+
+.conversations-page {
+  position: relative;
+
+  .row {
+    flex-wrap: nowrap;
+    min-height: calc(100vh - 120px);
+    max-height: calc(100vh - 120px);
+  }
+}

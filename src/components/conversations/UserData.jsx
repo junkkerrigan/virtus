@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const cutText = text => {
-  if (text && text.length>=110) text=text.substr(0, 110) + '...';
+  if (text && text.length>=100) text=text.substr(0, 100) + '...';
   return text;
 };
 
@@ -20,7 +20,7 @@ const UserData = props => {
     name, avatar, role, description, email, phone, address, organization, status
   } = user;
   return (
-    <div className={`user-data d-flex ${currentDialog? '' : 'no-dialog'}`}>
+    <div className={`user-data ${currentDialog? '' : 'no-dialog'}`}>
       <img src={avatar} alt='user avatar' />
       <h4 className='user-name'>{name}</h4>
       <span className='user-role'>{role}</span>
