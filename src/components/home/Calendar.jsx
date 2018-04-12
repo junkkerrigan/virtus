@@ -10,7 +10,7 @@ const Calendar = () => (
     lg={{ size: 3, offset: 0 }}
     md={{ size: 6, offset: 3 }}
     sm={{ size: 12, offset: 0 }}
-    className="calendar-wrapper"
+    className='calendar-wrapper shadow-wrapper'
   >
     <DayPicker showOutsideDays />
   </Col>

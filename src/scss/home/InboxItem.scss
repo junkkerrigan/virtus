@@ -1,0 +1,33 @@
+@import "../variables";
+
+.home-page .inbox-item {
+  padding: 20px 15px;
+  background: $_grey;
+  border-bottom: 1px solid #505364;
+
+  img {
+    margin-right: 10px;
+  }
+
+  &-user {
+    a {
+      @include font(white, 700, 14);
+    }
+    @include font(white, 700, 14);
+    max-width: 60%;
+  }
+
+  &-data {
+    width: calc(100% - 46px);
+  }
+
+  &-time {
+    @include font($_blue, 700, 12);
+    white-space: nowrap;
+  }
+
+  &-text {
+    @include font($_fgrey, 700, 12);
+    margin-top: 10px;
+  }
+}

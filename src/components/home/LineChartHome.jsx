@@ -17,27 +17,27 @@ const chartData = {
 };
 
 const LineChartHome = () => (
-  <Col lg="9" xs="12">
-    <div className="line-chart">
-      <ul className="doughnut-chart-list d-flex">
-        <li className="doughnut-chart d-flex">
+  <Col lg='9' xs='12' className='shadow-wrapper'>
+    <div className='line-chart'>
+      <ul className='doughnut-chart-list d-flex'>
+        <li className='doughnut-chart d-flex'>
           <CircularProgressbar percentage={75} strokeWidth={6} />
-          <div className="doughnut-chart-legend d-flex">
-            <span className="number">1300</span>
+          <div className='doughnut-chart-legend d-flex'>
+            <span className='number'>1300</span>
             Views
           </div>
         </li>
-        <li className="doughnut-chart d-flex">
+        <li className='doughnut-chart d-flex'>
           <CircularProgressbar percentage={35} strokeWidth={6} />
-          <div className="doughnut-chart-legend d-flex">
-            <span className="number">800</span>
+          <div className='doughnut-chart-legend d-flex'>
+            <span className='number'>800</span>
             Visitors
           </div>
         </li>
-        <li className="doughnut-chart d-flex">
+        <li className='doughnut-chart d-flex'>
           <CircularProgressbar percentage={62} strokeWidth={6} />
-          <div className="doughnut-chart-legend d-flex">
-            <span className="number">3800</span>
+          <div className='doughnut-chart-legend d-flex'>
+            <span className='number'>3800</span>
             Impressions
           </div>
         </li>

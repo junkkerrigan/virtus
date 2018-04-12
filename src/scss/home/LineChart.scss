@@ -4,7 +4,6 @@
   .line-chart {
     background-color: $_grey;
     margin-top: 50px;
-    box-shadow: 0 3px 40px rgba(23, 24, 32, 0.2);
 
     @media (max-width: $_max_md) {
       margin-top: 15px;

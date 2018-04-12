@@ -1,39 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row } from 'reactstrap';
-import { connect } from 'react-redux';
 import Filters from './Filters';
 import DialogsList from './DialogsList';
 import MessagesList from './MessagesList';
 import UserData from './UserData';
-import data from '../../data/conversationsData';
-import { addConversationsData } from '../../redux/actions';
 
 //TODO: change *harry* to currentUser when add login
 
-const mapDispatchToProps = dispatch => ({
-  addConversationsData: (data => dispatch(addConversationsData(data)))
-});
 
-class Conversations extends Component {
-  componentWillMount() {
-    const { addConversationsData } = this.props;
-    addConversationsData(data);
-  }
+const Conversations = () =>  {
+  return (
+    <div className='conversations-page'>
+      <Filters />
+      <Container>
+        <Row>
+          <DialogsList />
+          <MessagesList />
+          <UserData />
+        </Row>
+      </Container>
+    </div>
+  )
+};
 
-  render() {
-    return (
-      <div className='conversations-page'>
-        <Filters />
-        <Container>
-          <Row>
-            <DialogsList />
-            <MessagesList />
-            <UserData />
-          </Row>
-        </Container>
-      </div>
-    )
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Conversations);
+export default Conversations;

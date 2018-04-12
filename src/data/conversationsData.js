@@ -506,7 +506,7 @@ export default {
         status: 'new'
       },
       {
-        text: 'It starts with words `I push my fingers into ny EEEEYES`',
+        text: 'It starts with words `I push my fingers into my EEEEYES`',
         date: new Date(2016, 4, 2, 0, 15),
         sender: 'dominic',
         status: 'new'

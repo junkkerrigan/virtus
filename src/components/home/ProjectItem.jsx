@@ -13,19 +13,19 @@ const ProjectItem = props => {
   } = props;
   const Tag = `${tag}`;
   return (
-    <Tag className="project d-flex">
-      <img src={usersData[assignedTo].avatar} alt="avatar" width="37" height="37" />
-      <div className="project-data">
-        <h6 className="project-title ellipsis">
+    <Tag className='project d-flex'>
+      <img src={usersData[assignedTo].avatar} alt='avatar' width='37' height='37' />
+      <div className='project-data'>
+        <h6 className='project-title ellipsis'>
           <Link to='/work'>{title}</Link>
         </h6>
-        <div className="ellipsis">
+        <div className='ellipsis'>
           <span>{author}</span>
           <span>{`$${price}`}</span>
         </div>
       </div>
-        <button className="project-options">
-          <i className="fa fa-ellipsis-v" />
+        <button className='project-options'>
+          <i className='fa fa-ellipsis-v' />
         </button>
     </Tag>
   );

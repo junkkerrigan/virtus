@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { chooseDialog } from '../../redux/actions';
 import usersData from '../../data/usersProfilesData';
@@ -37,8 +36,8 @@ const getDate = date => {
   return time;
 };
 
-const cutText = text => {
-  if (text.length>=110) text=text.substr(0, 110) + '...';
+const cutText = (text, maxLen) => {
+  if (text.length>=maxLen) text=text.substr(0, maxLen) + '...';
   return text;
 };
 
@@ -61,9 +60,11 @@ const Dialog = props => {
             {getDate(date)}
           </span>
       </div>
-      <p className='dialog-message'>{cutText(text)}</p>
+      <p className='dialog-message'>{cutText(text, 110)}</p>
     </li>
   );
 };
+
+export { getDate, cutText };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dialog);

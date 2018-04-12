@@ -37,7 +37,7 @@ class BarChart extends Component {
         sm={{ size: 12, offset: 0 }}
         className='bar-chart-wrapper'
       >
-        <div className='bar-chart'>
+        <div className='bar-chart shadow-wrapper'>
           <header className='bar-chart-header d-flex'>
             <h3 className='bar-chart-title home-section-title'>
               <Link to='/statistics'>Sales report</Link>

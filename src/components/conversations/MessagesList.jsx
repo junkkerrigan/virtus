@@ -44,8 +44,10 @@ class MessagesList extends Component {
   };
 
   componentDidUpdate() {
-    this.messagesList.scrollTop = this.messagesList.scrollHeight;
-    this.messageInput.value = '';
+    if (this.messagesList) {
+      this.messagesList.scrollTop = this.messagesList.scrollHeight;
+      this.messageInput.value = '';
+    }
   }
 
   render() {

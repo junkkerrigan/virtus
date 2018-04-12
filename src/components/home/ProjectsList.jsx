@@ -15,14 +15,14 @@ const ProjectsList = () => (
     lg={{ size: 3, offset: 0 }}
     md={{ size: 6, offset: 3 }}
     sm={{ size: 12, offset: 0 }}
-    className="project-list-wrapper"
+    className='shadow-wrapper'
   >
-    <header className="project-list-header d-flex">
-      <h3 className="home-section-title">
+    <header className='project-list-header home-section-header d-flex'>
+      <h3 className='home-section-title'>
         <Link to='/work'>Your projects</Link>
       </h3>
     </header>
-    <ul className="project-list">
+    <ul className='project-list'>
       {
         map(ordersData, (item) => {
           if (item.assignedTo === 'harry') {

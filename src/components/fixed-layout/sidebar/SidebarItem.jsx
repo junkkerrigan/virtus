@@ -4,12 +4,9 @@ import { Link } from 'react-router-dom';
 import '../../../scss/fixed-layout/sidebar/SidebarItem.scss';
 
 class SidebarItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isBadgeVisible: false
-    };
-  }
+  state = {
+    isBadgeVisible: false
+  };
 
   componentDidMount() {
     setTimeout(() => {
