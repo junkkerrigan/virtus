@@ -8,8 +8,11 @@ import '../../scss/home/InboxItem.scss';
 const InboxItem = props => {
   const { sender, text, date, status } = props.message;
   const { avatar, name } = usersData[sender];
+  const { tag } = props;
+  let Tag;
+  if (tag) Tag=`${tag}`;
   return (
-    <li className='inbox-item d-flex align-items-center'>
+    <Tag className='inbox-item d-flex align-items-center'>
       <img src={avatar} width='36' height='36' />
       <div className='d-flex flex-column align-items-start inbox-item-data'>
         <div className='d-flex justify-content-between align-items-center  w-100'>
@@ -22,7 +25,7 @@ const InboxItem = props => {
         </div>
         <p className='inbox-item-text'>{cutText(text, 50)}</p>
       </div>
-    </li>
+    </Tag>
   );
 };
 

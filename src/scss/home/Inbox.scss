@@ -11,7 +11,9 @@
 
   &-list {
     max-height: 225px;
+    min-height: 225px;
     overflow: scroll;
+    background: $_grey;
 
     &::-webkit-scrollbar {
       width: 0;

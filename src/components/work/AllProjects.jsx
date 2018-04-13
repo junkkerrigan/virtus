@@ -40,7 +40,7 @@ class AllProjects extends Component {
         <Row tag='ul' className="all-projects-list no-gutters">
           {
             map(ordersData, item => (
-                <Project order={item} key={shortid.generate()} />
+              <Project order={item} key={shortid.generate()} />
             ))
           }
         </Row>

@@ -3,7 +3,6 @@
 .sign {
   &-page {
     width: 90%;
-    min-height: 50vh;
     background: $_grey;
 
     @media (min-width: $_min_md) {

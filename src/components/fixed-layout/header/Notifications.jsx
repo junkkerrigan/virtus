@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { connect } from 'react-redux';
+import map from 'lodash/map';
+import shortid from 'shortid';
+import { comparator } from '../../home/Inbox';
+import InboxItem from '../../home/InboxItem';
 
 import '../../../scss/fixed-layout/header/Notifications.scss';
 
+const mapStateToProps = state => ({
+  currentUser: state.currentUser,
+  data: state.conversations.data
+});
+
 class Notifications extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false,
-      isBadgeVisible: false
-    }
-  }
+  state = {
+    isOpen: false,
+    isBadgeVisible: false
+  };
 
   componentDidMount() {
     setTimeout(() => {
@@ -26,24 +33,38 @@ class Notifications extends Component {
     })
   };
 
-  //TODO: add last messages
-
   render() {
-    const { isOpen } = this.state;
+    const { isOpen, isBadgeVisible } = this.state;
+    const { data, currentUser } = this.props;
+    let inbox = [];
+    for (let i in data) {
+      data[i].active.forEach(item => {
+        if (item.sender !== currentUser) inbox.push(item);
+      })
+    }
+    inbox.sort((a, b) => comparator(a, b));
     return (
       <Dropdown isOpen={isOpen} toggle={this.toggleNotifications} className='fixed-header-notifications'>
         <DropdownToggle>
           <i className='fa fa-bell-o' />
           {
-            this.state.isBadgeVisible? <span className='notifications-badge' /> : ''
+            isBadgeVisible? <span className='notifications-badge' /> : ''
           }
         </DropdownToggle>
         <DropdownMenu right>
-          <DropdownItem>Message</DropdownItem>
+          {
+            map(inbox, item => {
+              return (<InboxItem
+                  key={shortid.generate()}
+                  tag='div'
+                  message={item}
+              />)
+            })
+          }
         </DropdownMenu>
       </Dropdown>
     );
   }
 }
 
-export default Notifications;
+export default connect(mapStateToProps)(Notifications);

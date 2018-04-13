@@ -10,7 +10,8 @@ import '../../scss/conversations/MessagesList.scss';
 const mapStateToProps = state => ({
   currentDialog: state.conversations.currentDialog,
   data: state.conversations.data,
-  messagesFilter: state.conversations.messagesFilter
+  messagesFilter: state.conversations.messagesFilter,
+  currentUser: state.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -24,13 +25,13 @@ class MessagesList extends Component {
   onMessageSend = event => {
     event.preventDefault();
     let {
-      currentDialog, data, sendMessage, messagesFilter, changeLastMessage
-    } = this.props;
+      currentDialog, data, sendMessage, messagesFilter, changeLastMessage,
+      currentUser } = this.props;
     if (currentDialog && messagesFilter!=='trash') {
       const newMessage = {
         text: this.messageInput.value,
         date: new Date(),
-        sender: 'harry',
+        sender: currentUser,
         status: 'new'
       };
       data[currentDialog].active.push(newMessage);
@@ -51,14 +52,14 @@ class MessagesList extends Component {
   }
 
   render() {
-    let { currentDialog, messagesFilter, data } = this.props;
+    let { currentDialog, messagesFilter, data, currentUser } = this.props;
     let noDialog = false;
     if (currentDialog) {
       if (messagesFilter === 'trash') {
         data = data[currentDialog].trash;
       } else if (messagesFilter === 'sent') {
         data = data[currentDialog].active;
-        data=data.filter(item => item.sender==='harry');
+        data=data.filter(item => item.sender===currentUser);
       } else data=data[currentDialog].active;
     } else noDialog = true;
     return (

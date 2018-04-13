@@ -12,16 +12,19 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
   messagesFilter: state.conversations.messagesFilter,
-  data: state.conversations.data
+  data: state.conversations.data,
+  currentUser: state.currentUser
 });
 
 const Filters = props => {
   const {
-    toggleMessagesFilter, toggleDialogsFilter, data, messagesFilter
+    toggleMessagesFilter, toggleDialogsFilter, data, messagesFilter, currentUser
   } = props;
   let newMessages = 0;
   for (let key in data) {
-    data[key].active.forEach(item => { if (item.status==='new') newMessages++; })
+    data[key].active.forEach(item => {
+      if (item.status==='new' && item.sender!==currentUser) newMessages++;
+    })
   }
   return (
     <div className='filters-wrapper'>

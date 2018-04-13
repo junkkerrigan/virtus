@@ -1,0 +1,39 @@
+@import "../../variables";
+
+.fixed-header {
+  .dropdown {
+    &-menu {
+      @media (min-width: $_min_md) {
+        width: 250px;
+      }
+
+      width: 150px;
+      border-radius: 0;
+      background: #3a3e52;
+      padding: 0;
+    }
+
+    &-header {
+      @include font($_fgrey, 500, 18);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    &-item {
+      padding: 20px 30px;
+      @include font(white, 500, 16);
+      display: flex;
+      justify-content: center;
+
+      a {
+        text-decoration: none !important;
+        @include font(white, 500, 16);
+      }
+
+      &:hover {
+        background: $_fgrey;
+      }
+    }
+  }
+}

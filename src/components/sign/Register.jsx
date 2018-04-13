@@ -51,6 +51,7 @@ class Register extends Component {
     if (isUsernameFree && passwordValidation==='valid') {
       userSign(username);
       localStorage.setItem(username, JSON.stringify(userData));
+      localStorage.setItem('currentUser', username);
       this.setState({
         isFormSubmitted: true
       });

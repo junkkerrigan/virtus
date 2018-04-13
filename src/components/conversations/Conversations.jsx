@@ -5,9 +5,6 @@ import DialogsList from './DialogsList';
 import MessagesList from './MessagesList';
 import UserData from './UserData';
 
-//TODO: change *harry* to currentUser when add login
-
-
 const Conversations = () =>  {
   return (
     <div className='conversations-page'>

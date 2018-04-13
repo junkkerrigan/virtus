@@ -11,4 +11,15 @@
     background-color: $_blue;
     border: 2px solid $_grey;
   }
+
+  .dropdown-menu {
+    max-height: 220px;
+    min-height: 220px;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      height: 0;
+      width: 0;
+    }
+  }
 }

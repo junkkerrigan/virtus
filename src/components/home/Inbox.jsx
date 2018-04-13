@@ -7,28 +7,29 @@ import shortid from 'shortid';
 import moment from 'moment';
 import InboxItem from './InboxItem';
 
-//TODO: change *harry*
-
 import '../../scss/home/Inbox.scss';
 
 const mapStateToProps = state => ({
   data: state.conversations.data,
-  lastMessage: state.conversations.lastMessage
+  lastMessage: state.conversations.lastMessage,
+  currentUser: state.currentUser
 });
 
 const comparator = (a, b) => {
   const f=moment(a.date), s=moment(b.date);
+  if (a.status==='new' && b.status!=='new') return -1;
+  if (a.status!=='new' && b.status==='new') return 1;
   if (f.diff(s, 'milliseconds', true)<0) return 1;
   if (f.diff(s, 'milliseconds', true)>0) return -1;
   return 0;
 };
 
 const Inbox = props => {
-  const { data } = props;
+  const { data, currentUser } = props;
   let inbox = [], newMessages = 0;
   for (let i in data) {
     data[i].active.forEach(item => {
-      if (item.sender!=='harry') {
+      if (item.sender !== currentUser) {
         inbox.push(item);
         if (item.status === 'new') {
           newMessages++;
@@ -61,6 +62,7 @@ const Inbox = props => {
           map(inbox, item => {
             return (<InboxItem
               key={shortid.generate()}
+              tag='li'
               message={item}
             />)
           })
@@ -69,5 +71,7 @@ const Inbox = props => {
     </Col>
   )
 };
+
+export { comparator };
 
 export default connect(mapStateToProps)(Inbox);
