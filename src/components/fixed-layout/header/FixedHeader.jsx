@@ -18,7 +18,7 @@ const FixedHeader = () => (
       </Link>
     </h1>
     <div className='d-flex align-items-center'>
-      <Link to='' className='add-project d-flex'>
+      <Link to='/add-project' className='add-project d-flex'>
           Add
         <i className='fa fa-plus' />
       </Link>

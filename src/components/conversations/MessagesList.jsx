@@ -19,7 +19,17 @@ const mapDispatchToProps = dispatch => ({
   changeLastMessage: messageData => dispatch(changeLastMessage(messageData))
 });
 
-//TODO: add callback from bot
+const answers = [
+  'Hi!',
+  'Hello!',
+  'Wonderful!',
+  'Sorry(',
+  'Well, I need some time to think about it...',
+  'lol',
+  'Bye!'
+];
+
+const randomValue = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 class MessagesList extends Component {
   onMessageSend = event => {
@@ -27,7 +37,7 @@ class MessagesList extends Component {
     let {
       currentDialog, data, sendMessage, messagesFilter, changeLastMessage,
       currentUser } = this.props;
-    if (currentDialog && messagesFilter!=='trash') {
+    if (currentDialog && messagesFilter==='inbox') {
       const newMessage = {
         text: this.messageInput.value,
         date: new Date(),
@@ -39,7 +49,22 @@ class MessagesList extends Component {
       changeLastMessage();
       this.setState({
         data
-      })
+      });
+      setTimeout(() => {
+        const i=randomValue(0, answers.length);
+        const newMessage = {
+          text: answers[i],
+          date: new Date(),
+          sender: currentDialog,
+          status: 'new'
+        };
+        data[currentDialog].active.push(newMessage);
+        sendMessage(data);
+        changeLastMessage();
+        this.setState({
+          data
+        })
+      }, randomValue(1, 20)*1000);
     }
     this.messageInput.value = '';
   };
