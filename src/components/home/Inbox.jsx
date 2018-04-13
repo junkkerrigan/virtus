@@ -25,7 +25,6 @@ const comparator = (a, b) => {
 
 const Inbox = props => {
   const { data } = props;
-  console.log(data);
   let inbox = [], newMessages = 0;
   for (let i in data) {
     data[i].active.forEach(item => {

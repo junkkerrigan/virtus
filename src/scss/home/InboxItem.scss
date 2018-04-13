@@ -12,6 +12,7 @@
   &-user {
     a {
       @include font(white, 700, 14);
+      text-decoration: none!important;
     }
     @include font(white, 700, 14);
     max-width: 60%;
@@ -22,12 +23,17 @@
   }
 
   &-time {
-    @include font($_blue, 700, 12);
+    @include font($_fgrey, 700, 12);
     white-space: nowrap;
+
+    &.new {
+      color: $_blue;
+    }
   }
 
   &-text {
     @include font($_fgrey, 700, 12);
     margin-top: 10px;
+    line-height: 24px;
   }
 }

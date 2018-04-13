@@ -6,9 +6,6 @@ import Calendar from './Calendar';
 import ProjectsList from './ProjectsList';
 import Inbox from './Inbox';
 
-// TODO: add inbox, when added messages data
-
-
 class Home extends Component {
 
   render() {

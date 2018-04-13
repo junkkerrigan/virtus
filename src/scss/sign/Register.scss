@@ -1,0 +1,163 @@
+@import "../variables";
+
+$_ggrey: #505364;
+
+.sign-page .register {
+  padding: 30px 0;
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-label {
+      @media (min-width: $_min_md) {
+        width: 50%;
+      }
+
+      width: 80%;
+      margin: 0;
+      position: relative;
+
+      &:last-of-type > input{
+        margin-bottom: 50px;
+        font-size: 24px;
+      }
+    }
+
+    &-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid $_blue;
+      margin-top: 20px;
+      height: 40px;
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 0;
+
+      @include font(white, 500, 16);
+
+      &::-webkit-input-placeholder {
+        @include font($_fgrey, 500, 14);
+      }
+
+      &:focus, &:active {
+        box-shadow: none!important;
+        outline: none!important;
+      }
+
+      &.password {
+        &.valid {
+          border-bottom: 1px solid $_green;
+
+          & + span {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            &::after {
+              content: 'Password is valid';
+              white-space: nowrap;
+              @include font($_green, 500, 12);
+              position: absolute;
+              bottom: 30px;
+              left: 10px;
+            }
+          }
+        }
+
+        &.short {
+          border-bottom: 1px solid $_red;
+
+          & + span {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            &::after {
+              content: 'Password is too short';
+              white-space: nowrap;
+              @include font($_red, 500, 12);
+              position: absolute;
+              bottom: 30px;
+              left: 10px;
+            }
+          }
+        }
+
+        &.long {
+          border-bottom: 1px solid $_red;
+
+          & + span {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            &::after {
+              content: 'Password is too long';
+              white-space: nowrap;
+              @include font($_red, 500, 12);
+              position: absolute;
+              bottom: 30px;
+              left: 10px;
+            }
+          }
+        }
+      }
+
+      &.username {
+        &.free {
+          border-bottom: 1px solid $_green;
+
+          & + span {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            &::after {
+              content: 'Username is free';
+              white-space: nowrap;
+              @include font($_green, 500, 12);
+              position: absolute;
+              bottom: -20px;
+              left: 10px;
+            }
+          }
+        }
+
+        &.busy {
+          border-bottom: 1px solid $_red;
+
+          & + span {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            &::after {
+              content: 'Username is busy';
+              white-space: nowrap;
+              @include font($_red, 500, 12);
+              position: absolute;
+              bottom: -20px;
+              left: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    &-submit {
+      border-radius: 36px;
+      padding: 15px 0;
+      text-align: center;
+      background: $_blue;
+      @include font(white, 700, 18);
+      letter-spacing: 5px;
+      width: 70%;
+
+      @media (min-width: $_min_md) {
+        width: 40%;
+      }
+    }
+  }
+}

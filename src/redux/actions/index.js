@@ -1,3 +1,8 @@
+export const userSign = currentUser => ({ // sign page
+  type: 'USER_SIGN',
+  payload: currentUser
+});
+
 export const toggleWorksTab = tab => ({ // work page
   type: 'TOGGLE_WORKS_TAB',
   payload: tab
