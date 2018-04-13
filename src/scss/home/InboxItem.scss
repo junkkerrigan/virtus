@@ -5,6 +5,10 @@
   background: $_grey;
   border-bottom: 1px solid #505364;
 
+  &:last-of-type {
+    border-bottom: none;
+  }
+
   img {
     margin-right: 10px;
   }

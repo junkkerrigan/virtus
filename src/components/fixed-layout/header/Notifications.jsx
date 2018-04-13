@@ -43,6 +43,7 @@ class Notifications extends Component {
       })
     }
     inbox.sort((a, b) => comparator(a, b));
+    inbox = inbox.splice(0, 5);
     return (
       <Dropdown isOpen={isOpen} toggle={this.toggleNotifications} className='fixed-header-notifications'>
         <DropdownToggle>

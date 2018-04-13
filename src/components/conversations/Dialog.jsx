@@ -16,11 +16,12 @@ const mapDispatchToProps = dispatch => ({
 
 const getDate = date => {
   const m = moment(date), today = moment(new Date());
+  const getMinutes = minutes => minutes<10? '0' + minutes : minutes;
   const months = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
   if (today.diff(m, 'days', true)<1) {
-    let time='Today, ' + m.get('hour')%12 + ':' + m.get('minute');
+    let time='Today, ' + m.get('hour')%12 + ':' + getMinutes(m.get('minute'));
     time+=m.get('hour')<=12? ' AM' : ' PM';
     return time;
   }

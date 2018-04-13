@@ -14,9 +14,28 @@
       background: $_dgrey;
       box-shadow: 0 3px 80px rgba(23, 24, 32, 0.3);
 
-      img {
-        min-width: 40%;
+      .avatar-wrapper {
+        width: 100%;
 
+        img {
+          min-width: 40%;
+        }
+      }
+
+      &.online .avatar-wrapper {
+        position: relative;
+
+        &::after {
+          content: '';
+          border-radius: 50%;
+          border: 2px solid $_dgrey;
+          background: $_green;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          right: 32%;
+          top: 0;
+        }
       }
 
       &.no-dialog > * {

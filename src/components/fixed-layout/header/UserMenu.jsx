@@ -30,8 +30,6 @@ class UserMenu extends Component {
     })
   };
 
-  //TODO: add redirect to login page and stylize menu
-
   render() {
     const { isOpen, isLoggedOut } = this.state;
     const { currentUser } = this.props;

@@ -6,11 +6,12 @@ import '../../scss/conversations/Message.scss';
 
 const getTime = date => {
   const m=moment(date);
+  const getMinutes = minutes => minutes<10? '0' + minutes : minutes;
   const months = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
   let time=m.get('date') + ' ' + months[m.get('month')] + ' ' + m.get('year') +
-    ', ' + m.get('hour')%12 + ':' + m.get('minute');
+    ', ' + m.get('hour')%12 + ':' + getMinutes(m.get('minute'));
   time+=m.get('hour')<=12? ' AM' : ' PM';
   return time;
 };

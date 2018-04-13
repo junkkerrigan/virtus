@@ -20,8 +20,11 @@ const UserData = props => {
     name, avatar, role, description, email, phone, address, organization, status
   } = user;
   return (
-    <div className={`user-data ${currentDialog? '' : 'no-dialog'}`}>
-      <img src={avatar} alt='user avatar' />
+    <div className={`user-data ${currentDialog? '' : 'no-dialog'}
+      ${status==='online'? 'online' : ''}`}>
+      <div className='avatar-wrapper'>
+        <img src={avatar} alt='user avatar' />
+      </div>
       <h4 className='user-name'>{name}</h4>
       <span className='user-role'>{role}</span>
       <p className='user-description'>{cutText(description)}</p>
