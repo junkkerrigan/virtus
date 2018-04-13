@@ -58,27 +58,29 @@ class Register extends Component {
   };
 
   render() {
-    const { isUsernameFree, passwordValidation } = this.state;
+    const {
+      isUsernameFree, passwordValidation, isFormSubmitted
+    } = this.state;
     return (
-      <div className='register'>
-        <form className='register-form' onSubmit={this.onFormSubmit}>
-          <label className='register-form-label'>
+      <div className='sign-tab'>
+        <form className='sign-form' onSubmit={this.onFormSubmit}>
+          <label className='sign-form-label'>
             <input
-              className='register-form-input'
+              className='sign-form-input'
               type='text'
               placeholder='Real name:'
             />
           </label>
-          <label className='register-form-label'>
+          <label className='sign-form-label'>
             <input
-              className='register-form-input'
+              className='sign-form-input'
               type='email'
               placeholder='Email:'
             />
           </label>
-          <label className='register-form-label'>
+          <label className='sign-form-label'>
             <input
-              className={`register-form-input username
+              className={`sign-form-input register username
                 ${isUsernameFree? 'free' : 'busy'}`}
               type='text'
               placeholder='Username:'
@@ -87,9 +89,9 @@ class Register extends Component {
             />
             <span />
           </label>
-          <label className='register-form-label'>
+          <label className='sign-form-label'>
             <input
-              className={`register-form-input password
+              className={`sign-form-input register password
                 ${passwordValidation==='valid'? 'valid' :
                   passwordValidation==='short'? 'short' : 'long'}`}
               type='password'
@@ -99,12 +101,12 @@ class Register extends Component {
             />
             <span />
           </label>
-          <button type='submit' className='register-form-submit shadow-wrapper'>
+          <button type='submit' className='sign-form-submit shadow-wrapper'>
             Enter
           </button>
         </form>
         {
-          this.state.isFormSubmitted && <Redirect to='/home' />
+          isFormSubmitted && <Redirect to='/home' />
         }
       </div>
     );

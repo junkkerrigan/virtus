@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { connect } from 'react-redux';
 import Sign from './components/sign/Sign';

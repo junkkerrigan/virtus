@@ -7,8 +7,8 @@ import '../../scss/sign/Sign.scss';
 
 class Sign extends Component {
   state = {
-    activeTab: 'register'
-  }; // TODO: change start tab
+    activeTab: 'login'
+  };
 
   toggleTab = tab => {
     if (this.state.activeTab!==tab) {
