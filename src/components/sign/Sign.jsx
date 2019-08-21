@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Container } from 'reactstrap';
 import Register from './Register';
 import Login from './Login';
+import { userSign } from '../../redux/actions';
 
 import '../../scss/sign/Sign.scss';
 
@@ -20,6 +23,18 @@ class Sign extends Component {
 
   render() {
     const { activeTab } = this.state;
+    const { userSign } = this.props;
+
+    const currentUser = localStorage.getItem('currentUser') ||
+      localStorage.getItem('currentUser');
+
+    if (currentUser) {
+      userSign(currentUser);
+      return (
+        <Redirect to='/home' />
+      )
+    }
+
     return (
       <div className='sign-page-wrapper'>
         <Container>
@@ -57,4 +72,8 @@ class Sign extends Component {
   }
 }
 
-export default Sign;
+const mapDispatchToProps = dispatch => ({
+  userSign: currentUser => dispatch(userSign(currentUser))
+});
+
+export default connect(null, mapDispatchToProps)(Sign);

@@ -35,8 +35,8 @@ class MessagesList extends Component {
   onMessageSend = event => {
     event.preventDefault();
     let {
-      currentDialog, data, sendMessage, messagesFilter, changeLastMessage,
-      currentUser } = this.props;
+      currentDialog, data, sendMessage, messagesFilter, changeLastMessage, currentUser
+    } = this.props;
     if (currentDialog && messagesFilter==='inbox') {
       const newMessage = {
         text: this.messageInput.value,

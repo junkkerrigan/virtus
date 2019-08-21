@@ -25,6 +25,7 @@
       @include font(white, 500, 16);
       display: flex;
       justify-content: center;
+      border-top: 2px solid $_grey;
 
       a {
         text-decoration: none !important;

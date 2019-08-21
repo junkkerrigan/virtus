@@ -1,27 +1,13 @@
 @import "../variables";
 
-.sign-form-input.login {
-  &.username {
-    &.available {
-      border-bottom: 1px solid $_green;
+.sign-form {
+  &-checkbox {
+    margin-right: 10px;
+    transform: translate(0, 3px);
+  }
 
-      & + span {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-
-        &::after {
-          content: 'Username is available';
-          white-space: nowrap;
-          @include font($_green, 500, 12);
-          position: absolute;
-          bottom: -20px;
-          left: 10px;
-        }
-      }
-    }
-
-    &.unavailable {
+  &-input.login {
+    &.username.unavailable {
       border-bottom: 1px solid $_red;
 
       & + span {
@@ -39,23 +25,23 @@
         }
       }
     }
-  }
 
-  &.password.incorrect {
-    border-bottom: 1px solid $_red;
+    &.password.incorrect {
+      border-bottom: 1px solid $_red;
 
-    & + span {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-
-      &::after {
-        content: 'Password is incorrect';
-        white-space: nowrap;
-        @include font($_red, 500, 12);
+      & + span {
         position: absolute;
-        bottom: 30px;
-        left: 10px;
+        left: 0;
+        bottom: 0;
+
+        &::after {
+          content: 'Password is incorrect';
+          white-space: nowrap;
+          @include font($_red, 500, 12);
+          position: absolute;
+          bottom: -20px;
+          left: 10px;
+        }
       }
     }
   }

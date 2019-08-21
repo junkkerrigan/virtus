@@ -5,50 +5,59 @@ import { userSign } from '../../redux/actions';
 
 import '../../scss/sign/Register.scss';
 
-const mapDispatchToProps = dispatch => ({
-  userSign: currentUser => dispatch(userSign(currentUser))
-});
+const usernameValidator = username => {
+  if (username !== '') {
+    return (localStorage.getItem(username))? 'busy' : 'free';
+  }
+  return '';
+};
+
+const passwordValidator = password => {
+  const { length } = password;
+
+  if (password !== '') {
+    if (length > 20) {
+      return 'long';
+    } else if (length < 6) {
+      return  'short';
+    } else {
+      return 'valid';
+    }
+  }
+  return '';
+};
 
 class Register extends Component {
   state = {
     isFormSubmitted: false,
-    isUsernameFree: false,
-    passwordValidation: 'short'
+    username: '',
+    password: '',
+    email: '',
+    name: '',
   };
 
-  onUsernameChange = event => {
-    const username = event.target.value;
-    let isUsernameFree=true;
-    if (localStorage.getItem(username) || username.length===0) {
-      isUsernameFree=false;
-    }
+  onInputChange = event => {
+    const { name, value } = event.target;
     this.setState({
-      isUsernameFree
-    })
-  };
-
-  onPasswordChange = event => {
-    const len = event.target.value.length;
-    let passwordValidation='';
-    if (len<6) passwordValidation='short';
-    else if (len>20) passwordValidation='long';
-    else passwordValidation='valid';
-    this.setState({
-      passwordValidation
+      [name]: value
     })
   };
 
   onFormSubmit = event => {
     event.preventDefault();
-    const username = event.target[2].value,
-      userData = {
-        name: event.target[0].value,
-        email: event.target[1].value,
-        password: event.target[3].value
-      };
+
+    const { username, password, name, email } = this.state;
+    const userData = {
+        name,
+        email,
+        password,
+    };
+
     const { userSign } = this.props;
-    const { isUsernameFree, passwordValidation } = this.state;
-    if (isUsernameFree && passwordValidation==='valid') {
+    if (
+      usernameValidator(username) === 'free' &&
+      passwordValidator(password) === 'valid'
+    ) {
       userSign(username);
       localStorage.setItem(username, JSON.stringify(userData));
       localStorage.setItem('currentUser', username);
@@ -60,8 +69,19 @@ class Register extends Component {
 
   render() {
     const {
-      isUsernameFree, passwordValidation, isFormSubmitted
+      isFormSubmitted, email, name, password, username
     } = this.state;
+
+    let passwordStatus = passwordValidator(password);
+    if (passwordStatus !== '') {
+      passwordStatus = ` ${passwordStatus}`;
+    }
+
+    let usernameStatus = usernameValidator(username);
+    if (usernameStatus !== '') {
+      usernameStatus = ` ${usernameStatus}`;
+    }
+
     return (
       <div className='sign-tab'>
         <form className='sign-form' onSubmit={this.onFormSubmit}>
@@ -70,6 +90,9 @@ class Register extends Component {
               className='sign-form-input'
               type='text'
               placeholder='Real name:'
+              onChange={this.onInputChange}
+              name='name'
+              value={name}
             />
           </label>
           <label className='sign-form-label'>
@@ -77,28 +100,32 @@ class Register extends Component {
               className='sign-form-input'
               type='email'
               placeholder='Email:'
+              onChange={this.onInputChange}
+              name='email'
+              value={email}
             />
           </label>
           <label className='sign-form-label'>
             <input
-              className={`sign-form-input register username
-                ${isUsernameFree? 'free' : 'busy'}`}
+              className={`sign-form-input register username${usernameStatus}`}
               type='text'
               placeholder='Username:'
               required
-              onChange={this.onUsernameChange}
+              onChange={this.onInputChange}
+              name='username'
+              value={username}
             />
             <span />
           </label>
           <label className='sign-form-label'>
             <input
-              className={`sign-form-input register password
-                ${passwordValidation==='valid'? 'valid' :
-                  passwordValidation==='short'? 'short' : 'long'}`}
+              className={`sign-form-input register password${passwordStatus}`}
               type='password'
               placeholder='Password:'
               required
-              onChange={this.onPasswordChange}
+              onChange={this.onInputChange}
+              name='password'
+              value={password}
             />
             <span />
           </label>
@@ -113,6 +140,11 @@ class Register extends Component {
     );
   }
 }
+
+
+const mapDispatchToProps = dispatch => ({
+  userSign: currentUser => dispatch(userSign(currentUser))
+});
 
 export default connect(null, mapDispatchToProps)(Register);
 

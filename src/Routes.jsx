@@ -34,25 +34,20 @@ class Routes extends Component {
       <Router history={browserHistory}>
         <Switch>
           <Route exact path='/' component={Sign} />
-          {
-            currentUser?
-            <Route strict path='/:currentPage'>
-              <div>
-                <Route component={FixedSidebar} />
-                <Route component={FixedHeader} />
-                <div className='page'>
-                  <Switch>
-                    <Route path='/home' component={Home} />
-                    <Route path='/work' component={Work} />
-                    <Route path='/statistics' component={Statistics} />
-                    <Route path='/conversations' component={Conversations} />
-                  </Switch>
-                </div>
+          <Route strict path='/:currentPage'>
+            <div>
+              <Route component={FixedSidebar} />
+              <Route component={FixedHeader} />
+              <div className='page'>
+                <Switch>
+                  <Route path='/home' component={Home} />
+                  <Route path='/work' component={Work} />
+                  <Route path='/statistics' component={Statistics} />
+                  <Route path='/conversations' component={Conversations} />
+                </Switch>
               </div>
-            </Route>
-            :
-            <Redirect to='/' />
-          }
+            </div>
+          </Route>
         </Switch>
       </Router>
     );

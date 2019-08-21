@@ -14,24 +14,49 @@ class Login extends Component {
   state = {
     isFormSubmitted: false,
     isPasswordCorrect: undefined,
-    isUsernameAvailable: undefined
+    isUsernameAvailable: undefined,
+    username: '',
+    password: '',
+    remember: false,
+  };
+
+  onInputChange = event => {
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value
+    })
+  };
+
+  onCheckboxChange = event => {
+    const { remember } = this.state;
+
+    this.setState({
+      remember: !remember
+    })
   };
 
   onFormSubmit = event => {
     event.preventDefault();
-    const username = event.target[0].value,
-      password = event.target[1].value;
+
+    const { username, password, remember } = this.state;
     const { userSign } = this.props;
+
     if (localStorage.getItem(username)) {
       this.setState({
         isUsernameAvailable: 'available'
       });
       const userData = JSON.parse(localStorage.getItem(username));
-      if (userData.password===password) {
+      if (userData.password === password) {
         userSign(username);
         this.setState({
           isFormSubmitted: true
-        })
+        });
+        if (remember) {
+          localStorage.setItem('currentUser', username);
+        } else {
+          sessionStorage.setItem('currentUser', username);
+        }
       } else {
         this.setState({
           isPasswordCorrect: 'incorrect'
@@ -39,40 +64,60 @@ class Login extends Component {
       }
     } else {
       this.setState({
-        isUsernameAvailable: 'unavailable'
+        isUsernameAvailable: 'unavailable',
+        isPasswordCorrect: undefined,
       })
     }
   };
 
   render() {
     const {
-      isFormSubmitted, isPasswordCorrect, isUsernameAvailable
+      isFormSubmitted, isPasswordCorrect, isUsernameAvailable, username, password, remember
     } = this.state;
+
+    let usernameStatus = '';
+    if (isUsernameAvailable) {
+      usernameStatus = ` ${isUsernameAvailable}`;
+    }
+
+    console.log(isPasswordCorrect);
+
     return (
       <div className='sign-tab'>
         <form className='sign-form' onSubmit={this.onFormSubmit}>
           <label className='sign-form-label'>
             <input
-              className={`sign-form-input login username
-                ${isUsernameAvailable? isUsernameAvailable==='available'?
-                  'available' : 'unavailable' : ''}`}
+              className={`sign-form-input login username${usernameStatus}`}
               type='text'
               placeholder='Username:'
               required
-              onChange={this.onUsernameChange}
+              name='username'
+              onChange={this.onInputChange}
+              value={username}
             />
             <span />
           </label>
           <label className='sign-form-label'>
             <input
-              className={`sign-form-input login password
-                ${isPasswordCorrect? 'incorrect' : ''}`}
+              className={`sign-form-input login password${isPasswordCorrect? ' incorrect' : ''}`}
               type='password'
               placeholder='Password:'
               required
-              onChange={this.onPasswordChange}
+              name='password'
+              onChange={this.onInputChange}
+              value={password}
             />
             <span />
+          </label>
+          <label className='sign-form-label checkbox-label'>
+            <input
+              className='sign-form-checkbox'
+              type='checkbox'
+              onChange={this.onCheckboxChange}
+              name='remember'
+              value={remember}
+            />
+            Remember me
           </label>
           <button type='submit' className='sign-form-submit shadow-wrapper'>
             Enter

@@ -25,6 +25,9 @@ class UserMenu extends Component {
   };
 
   logOut = () => {
+    sessionStorage.removeItem('currentUser');
+    localStorage.removeItem('currentUser');
+
     this.setState({
       isLoggedOut: true
     })
@@ -33,11 +36,12 @@ class UserMenu extends Component {
   render() {
     const { isOpen, isLoggedOut } = this.state;
     const { currentUser } = this.props;
+
     return (
       <Dropdown isOpen={isOpen} toggle={this.toggleMenu} className='fixed-header-menu'>
         <DropdownToggle>
           <img
-            src={currentUser? usersData[currentUser].avatar : unknownUser }
+            src={usersData[currentUser]? usersData[currentUser].avatar : unknownUser}
             alt="user avatar"
             width="40"
             height="40"
@@ -45,7 +49,7 @@ class UserMenu extends Component {
           <i className='fa fa-angle-down' />
         </DropdownToggle>
         <DropdownMenu right>
-          <DropdownItem header>Welcome, {currentUser}</DropdownItem>
+          <DropdownItem header>Welcome, {currentUser || 'stranger'}</DropdownItem>
           <DropdownItem>
             <Link to='/settings'>Settings</Link>
           </DropdownItem>
